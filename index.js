@@ -3,7 +3,12 @@ const user = { userName: "", idUser: "", }
 
 //MIS FUNCIONES
 function newUser() {
-    user.userName = prompt("ingresar nombre user");
+    //? catch validaciones 
+    do{
+        user.userName = prompt("Asegurece de ingresar nombre user");
+        console.log(user.userName + "empty<-USER");
+    }while(user.userName == "")
+    // user.userName = prompt("ingresar nombre user");
     user.idUser = Math.floor(Math.random() * 100) + 1;
 
     console.log(user.userName + " " + user.idUser);
