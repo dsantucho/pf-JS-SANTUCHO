@@ -1,5 +1,20 @@
 
 const user = { userName: "", idUser: "", }
+// CLASES
+class itemSuper{
+    constructor(idItem, user,item,price){
+        this.idItem = idItem;
+        this.user = user;
+        this.item = item;
+        this.price = price;
+    }
+}
+class user1{
+    constructor(name){
+        this.name = name;
+        this.idUser=Math.floor(Math.random() * 100) + 1
+    }
+}
 
 //MIS FUNCIONES
 function newUser() {
@@ -17,16 +32,11 @@ function newUser() {
 };
 
 function addItemSupermarket() {
-    const itemSuper = {
-        user: user.idUser,
-        item: "",
-        price: ""
-    };
-
-    itemSuper.item = prompt("ingrese item");
-    itemSuper.price = parseFloat(prompt("ingrese precio"));
-    console.log("User:" + itemSuper.user + " item: " + itemSuper.item + " price: " + itemSuper.price)
-    return itemSuper;
+    let item = prompt("ingrese item");
+    let price = parseFloat(prompt("ingrese precio"));
+    const newItem = new itemSuper(idItem++,user.idUser, item, price);
+    console.log(newItem); //muestra todo la info
+    return newItem;
 }
 
 function calculateTotalPrice(array) {
@@ -43,6 +53,7 @@ function listarItems(arr){
 }
 
 // MAIN 
+let idItem = 0
 let menu;
 let arr = [];
 alert("Bienvenido, esta por comenzar el proceso de crear tu lista de compras. \n Para comenzar vamos a crear tu usuario");
