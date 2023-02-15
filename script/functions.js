@@ -1,7 +1,9 @@
 import {itemSuper, user} from "./objetos.js";
 
+
 let idItem = 0;
 let auxArr = [];
+let buttonsDelete = [];
 
 //General functions
 //TODO toJSON
@@ -26,35 +28,48 @@ export function displayItems(key){
         let itemList = document.getElementById("itemList"); // contenedor de elementos
         itemList.innerHTML = "";
         values.forEach((element) => {
+            if(element.active){
+                //mostrar elementos en HTML
+                let item = document.createElement("article");
+                item.classList.add("d-flex", "flex-row");
+                let description = document.createElement("div");
+                let itemName = document.createElement("label");
+                let price = document.createElement("span");
+                itemName.innerHTML = element.item;
+                price.innerHTML = element.price;
 
-        //mostrar elementos en HTML
-        let item = document.createElement("article");
-        item.classList.add("d-flex", "flex-row");
-        let description = document.createElement("div");
-        let itemName = document.createElement("label");
-        let price = document.createElement("span");
-        itemName.innerHTML = element.item;
-        price.innerHTML = element.price;
+                description.appendChild(itemName);
+                description.appendChild(price);
+                // Create the delete icon element
+                let acctionsItems = document.createElement("div");
+                
+                let buttonDelete = document.createElement("button");
+                //buttonDelete.classList.add('delete-button');
 
-        description.appendChild(itemName);
-        description.appendChild(price);
-        // Create the delete icon element
-        let acctionsItems = document.createElement("div");
-        
-        let buttonDelete = document.createElement("button");
-        let deleteIcon = document.createElement("i");
-        deleteIcon.classList.add("bi", "bi-trash");
-        acctionsItems.appendChild(buttonDelete);
-        buttonDelete.appendChild(deleteIcon);
+                
+                buttonDelete.id= `delete-button-${element.idItem}`; //add class for each delete item
+                buttonDelete.addEventListener("click", () => {
+                    console.log(`click ${element.idItem}`);
+                    element.active = false;
+                    setLocalStorage(key,values)
+                    displayItems(key)
+                  });
 
-        // Append the delete and descrition to the "div" element
-        item.appendChild(description);
-        item.appendChild(acctionsItems);
+                let deleteIcon = document.createElement("i");
+                deleteIcon.classList.add("bi", "bi-trash");
+                acctionsItems.appendChild(buttonDelete);
+                buttonDelete.appendChild(deleteIcon);
 
-        // Append the "p" element to the item list
-        itemList.appendChild(item);
-        
+                // Append the delete and descrition to the "div" element
+                item.appendChild(description);
+                item.appendChild(acctionsItems);
+
+                // Append the "p" element to the item list
+                itemList.appendChild(item);
+            }           
         });
+        buttonsDelete = document.querySelectorAll(".delete-button");
+        console.log(buttonsDelete);
     }
 
 
@@ -87,4 +102,3 @@ export function saveItemSupermarket(item, price, idUser,key) {
           ); //muestra todo la info
     }
   }
-
