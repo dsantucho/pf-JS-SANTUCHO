@@ -94,17 +94,17 @@ function calculateTotalPrice(array) {
   return total;
 }
 //listar mi lista en consola
-function listarItems(arr) {
-  // console.log(arr.join('/n')); -> Para arrays
-  const keys = Object.keys(arr);
-  for (let index = 0; index < keys.length; index++) {
-    if (arr[index].active) {
-      console.log(
-        `Item nro ${index}: es ${arr[index].item}; Precio: ${arr[index].price} `
-      );
-    }
-  }
-}
+// function listarItems(arr) {
+//   // console.log(arr.join('/n')); -> Para arrays
+//   const keys = Object.keys(arr);
+//   for (let index = 0; index < keys.length; index++) {
+//     if (arr[index].active) {
+//       console.log(
+//         `Item nro ${index}: es ${arr[index].item}; Precio: ${arr[index].price} `
+//       );
+//     }
+//   }
+// }
 //FILTRO EXACTO USANDO MAP
 function filtroExacto(arr, dato) {
   resMap = arr.map((el) => {

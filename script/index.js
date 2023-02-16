@@ -28,10 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(
           `Nombre de usuario ${newUser.name} y su id: ${newUser.idUser}; password: ${newUser.password}`
         );
-        setLocalStorage("loginUser", newUser);
+        functions.setLocalStorage("loginUser", newUser);
         alert("Login successful");
         //redirect to Home Page
-        window.location = "home.html";
+        window.location = "./pages/home.html";
       } else {
         alert("Wrong username or password, refresh [F5] the webpage please");
       }
