@@ -53,6 +53,9 @@ export function displayItems(key){
                     element.active = false;
                     setLocalStorage(key,values)
                     displayItems(key)
+                    const resultSpan = document.getElementById("result");
+                    let result = sumItemsPrice("itemsGrocery");
+                    resultSpan.innerHTML = result;
                   });
 
                 let deleteIcon = document.createElement("i");
@@ -82,7 +85,7 @@ export function saveItemSupermarket(item, price, idUser,key) {
     console.log('AUX = ' + auxArr);
     if(auxArr !== null){
         //take the JSON using getLocal and add a new item into the same JSON.
-        const newItem = new itemSuper(idItem++, idUser, item, price);
+        const newItem = new itemSuper(idItem++, idUser, item, parseFloat(price));
         auxArr.push(newItem);
         setLocalStorage(key,auxArr);
         console.log(`*** New item has been saved in localStorage ${key} ***`)
@@ -93,7 +96,7 @@ export function saveItemSupermarket(item, price, idUser,key) {
     }else{
         //new
         auxArr = [];
-        const newItem = new itemSuper(idItem++, idUser, item, price);
+        const newItem = new itemSuper(idItem++, idUser, item, parseFloat(price));
         auxArr.push(newItem);
         setLocalStorage(key,auxArr);
         console.log(`*** New localStorage ${key} has been created with new item ***`)
@@ -102,3 +105,32 @@ export function saveItemSupermarket(item, price, idUser,key) {
           ); //muestra todo la info
     }
   }
+
+//Sum items active=true
+
+
+export function sumItemsPrice(key){
+  let result = 0.0;
+  const values = getLocalStorage(key);
+  console.log(values)
+    if(values == null){
+        return result = 'grocery list is empty';
+    }else if (values != null) {
+      values.forEach(element => {
+        if(element.active){
+          result = result + parseFloat(element.price);
+        }
+      });
+      console.log(result)
+      return parseFloat(result);
+      //    result = values.reduce((accumulator, object) => {
+      //     return accumulator = accumulator + parseInt(object.price);
+      //   }, 0);
+
+      // console.log(result);
+      // return result;
+      
+    } else {
+      return result = 'grocery list is empty';
+    }
+}

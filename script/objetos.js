@@ -4,7 +4,7 @@ export class itemSuper {
     this.idItem = idItem;
     this.user = user;
     this.item = item;
-    this.price = price;
+    this.price = parseFloat(price);
     this.date = new Date().toDateString(); // agrego fecha => 'Sun Feb 05 2023'
     this.active = true; // es para luego poder eliminar items de la lista
   }

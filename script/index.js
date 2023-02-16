@@ -46,14 +46,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
       let itemInput = document.getElementById("itemInput").value;
       let itemPrice = document.getElementById("itemPrice").value;
+      const resultSpan = document.getElementById("result");
 
       const user = functions.getLocalStorage("loginUser");
       //save item
-      functions.saveItemSupermarket(itemInput, itemPrice, user.idUser,"itemsGrocery")
+      functions.saveItemSupermarket(itemInput, itemPrice, user.idUser,"itemsGrocery");
+
       //display items
       let buttonAdd = document.getElementById("button-add");
       buttonAdd.addEventListener("click", functions.displayItems("itemsGrocery"))
 
+      //display sum
+      let result = functions.sumItemsPrice("itemsGrocery");
+      resultSpan.innerHTML = result;
     }
   }
 });

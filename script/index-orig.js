@@ -87,12 +87,12 @@
 //   return newItem;
 // }
 // calculo total de gasto
-function calculateTotalPrice(array) {
-  const total = array.reduce((accumulator, object) => {
-    return accumulator + object.price;
-  }, 0);
-  return total;
-}
+// function calculateTotalPrice(array) {
+//   const total = array.reduce((accumulator, object) => {
+//     return accumulator + object.price;
+//   }, 0);
+//   return total;
+// }
 //listar mi lista en consola
 // function listarItems(arr) {
 //   // console.log(arr.join('/n')); -> Para arrays
@@ -132,16 +132,16 @@ function filterNoExacto(arr, dato) {
   console.log(resFilter);
   //TODO agregar filtro para no mostrar items eliminados
 }
-function deleteItem(arr, datoDelet) {
-  resMap = arr.map((el) => {
-    if (el.item == datoDelet) {
-      el.setActiveFalse();
-      return console.log(
-        `Se elimino el item: \n producto: ${el.item} con precio: ${el.price} y su statuso quedo: ${el.active}`
-      );
-    }
-  });
-}
+// function deleteItem(arr, datoDelet) {
+//   resMap = arr.map((el) => {
+//     if (el.item == datoDelet) {
+//       el.setActiveFalse();
+//       return console.log(
+//         `Se elimino el item: \n producto: ${el.item} con precio: ${el.price} y su statuso quedo: ${el.active}`
+//       );
+//     }
+//   });
+// }
 
 // // MAIN
 // let idItem = 0;
