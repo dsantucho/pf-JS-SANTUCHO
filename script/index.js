@@ -7,7 +7,6 @@ let menu;
 const arr = [];
 let resMap;
 let resFilter;
-
 //formularios
 document.addEventListener("DOMContentLoaded", function () {
   functions.displayItems("itemsGrocery");

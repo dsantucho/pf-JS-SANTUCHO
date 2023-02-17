@@ -1,0 +1,115 @@
+body {
+  font-family: "Raleway";
+  font-style: normal;
+}
+body header a.espaciado {
+  letter-spacing: 7.5px;
+  text-transform: uppercase;
+  line-height: 28px;
+  font-size: 1.4rem;
+}
+body header nav.font-nav a {
+  font-weight: 500;
+  line-height: 25px;
+}
+body main section.grocerylist h2 {
+  text-align: center;
+  font-weight: normal;
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+body main section.grocerylist span {
+  font-size: 1.2rem;
+  margin-bottom: 0.7rem;
+  margin-left: 3px;
+  margin-top: 0.2rem;
+}
+body footer div span.copyright {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 17px;
+}
+body.clipped {
+  /* Para esconder mis h1 lo googlee */
+  clip: rect(0 0 0 0);
+  border: 0;
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  display: block;
+  margin: 0 -1px -1px 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none !important;
+  color: black;
+}
+a:link {
+  text-decoration: none !important;
+}
+a:hover {
+  text-decoration: none !important;
+}
+
+button {
+  padding: 8px;
+}
+
+header {
+  border-bottom: solid 1px rgb(198, 179, 179);
+  transition: all 0.5s ease;
+  z-index: 10;
+}
+header:hover {
+  box-shadow: 2px 6px 15px rgba(101, 82, 82, 0.1);
+}
+header nav ul li {
+  display: inline-block;
+}
+
+img.icon-logo {
+  max-height: 9.5rem;
+  max-width: 9.5rem;
+}
+
+main section.grocerylist {
+  margin: 4rem auto;
+  padding: 2rem 3rem 3rem;
+  max-width: 500px;
+  background: #9EA1D4;
+  color: #FFF;
+  box-shadow: -10px -10px 0px 0px #A8D1D1;
+}
+
+body {
+  background-color: #F1F7B5;
+}
+body header {
+  background-color: #FD8A8A;
+}
+body header a {
+  color: white !important;
+}
+body footer {
+  background-color: #FD8A8A;
+}
+
+/*# sourceMappingURL=style.css.map */

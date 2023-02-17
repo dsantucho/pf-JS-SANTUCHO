@@ -1,0 +1,12 @@
+main{
+    section{
+        &.grocerylist {
+            margin:4rem auto;
+            padding:2rem 3rem 3rem;
+            max-width:500px;
+            background:$color-blue-violet;
+            color:#FFF;
+            box-shadow:-10px -10px 0px 0px $color-teal;
+        }
+    }
+}

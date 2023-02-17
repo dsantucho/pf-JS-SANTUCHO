@@ -4,11 +4,9 @@ import {itemSuper, user} from "./objetos.js";
 let idItem = 0;
 let auxArr = [];
 let buttonsDelete = [];
-
+const resultSpan = document.getElementById("result");
 //General functions
-//TODO toJSON
-//TODO toObjetc
-//TODO setLocalStorage
+
 export function setLocalStorage(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
@@ -46,14 +44,13 @@ export function displayItems(key){
                 let buttonDelete = document.createElement("button");
                 //buttonDelete.classList.add('delete-button');
 
-                
                 buttonDelete.id= `delete-button-${element.idItem}`; //add class for each delete item
                 buttonDelete.addEventListener("click", () => {
                     console.log(`click ${element.idItem}`);
                     element.active = false;
                     setLocalStorage(key,values)
                     displayItems(key)
-                    const resultSpan = document.getElementById("result");
+
                     let result = sumItemsPrice("itemsGrocery");
                     resultSpan.innerHTML = result;
                   });
@@ -73,6 +70,8 @@ export function displayItems(key){
         });
         buttonsDelete = document.querySelectorAll(".delete-button");
         console.log(buttonsDelete);
+        let result = sumItemsPrice("itemsGrocery");
+        resultSpan.innerHTML = result;
     }
 
 

@@ -1,1 +1,14 @@
+//utils
+@import "./utils/variables";
+@import "./utils/typography";
+
+//base
 @import "./base/base" ;
+
+//components
+@import "./componentes/navbar";
+@import "./componentes/icons";
+@import "./componentes/cards";
+
+//pages
+@import "./pages/home"

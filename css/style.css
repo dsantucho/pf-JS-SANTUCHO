@@ -14,6 +14,7 @@ ul, ol {
 
 a {
   text-decoration: none;
+  color: black;
 }
 a:link {
   text-decoration: none;
@@ -24,6 +25,22 @@ a:hover {
 
 button {
   padding: 8px;
+}
+
+header {
+  border-bottom: solid 1px;
+  transition: all 0.5s ease;
+  z-index: 10;
+}
+header:hover {
+  box-shadow: 2px 6px 15px rgba(0, 0, 0, 0.1);
+}
+header nav ul li {
+  display: inline-block;
+}
+img.icon-logo {
+  max-height: 1rem;
+  max-width: 1rem;
 }
 
 /*# sourceMappingURL=style.css.map */

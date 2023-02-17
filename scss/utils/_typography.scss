@@ -1,0 +1,71 @@
+body {
+  font-family: "Raleway";
+  font-style: normal;
+header{
+    a{
+        &.espaciado {
+            letter-spacing: 7.5px;
+            text-transform: uppercase;
+            line-height: 28px;
+            font-size: $breakpoint-md;
+          }
+    }
+
+      nav {
+        &.font-nav {
+          a {
+            font-weight: 500;
+            line-height: 25px;
+          }
+        }
+      }
+}
+main{
+    section{
+        &.grocerylist{
+            h2{
+                text-align:center;
+                font-weight:normal;
+                font-size:$breakpoint-lg;
+                letter-spacing:0.05em;
+                border-bottom:1px solid rgba(255,255,255,.3); 
+            }
+            span{
+                font-size:$breakpoint-sm;
+                margin-bottom:0.7rem;
+                margin-left:3px;
+                margin-top:0.2rem;  
+            }
+        }
+    }
+}
+
+footer{
+    div{
+        span{
+            &.copyright{
+                // font-family: 'Inter';
+                // font-style : normal;
+                font-weight: 400;
+                font-size  : $breakpoint-none;
+                line-height: 17px;
+            }
+        }
+
+    }
+
+}
+  &.clipped {
+    /* Para esconder mis h1 lo googlee */
+    clip: rect(0 0 0 0);
+    border: 0;
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    display: block;
+    margin: 0 -1px -1px 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    z-index: -1;
+  }
+}
