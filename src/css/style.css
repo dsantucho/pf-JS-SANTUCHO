@@ -15,7 +15,7 @@ body header nav.font-nav a {
 body main section.grocerylist h2 {
   text-align: center;
   font-weight: normal;
-  font-size: 1.6rem;
+  font-size: 2rem;
   letter-spacing: 0.05em;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
@@ -24,6 +24,18 @@ body main section.grocerylist span {
   margin-bottom: 0.7rem;
   margin-left: 3px;
   margin-top: 0.2rem;
+}
+body main section.grocerylist > div:last-of-type h4, body main section.grocerylist > div:last-of-type span {
+  font-size: 1.6rem;
+}
+body main section form div button.button-grocery {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+body main section #itemList article div label, body main section #itemList article div span {
+  font-size: 1.2rem;
+  font-style: normal;
 }
 body footer div span.copyright {
   font-weight: 400;
@@ -91,12 +103,44 @@ img.icon-logo {
 }
 
 main section.grocerylist {
-  margin: 4rem auto;
-  padding: 2rem 3rem 3rem;
   max-width: 500px;
   background: #9EA1D4;
   color: #FFF;
   box-shadow: -10px -10px 0px 0px #A8D1D1;
+}
+main section.grocerylist #itemList article {
+  background: rgba(138, 143, 226, 0.8392156863);
+}
+main section.grocerylist > div:last-of-type {
+  background-color: #A8D1D1;
+  color: #000;
+  border: #9EA1D4 2px solid;
+}
+main section #groceryForm input {
+  flex-grow: 1;
+  border: none;
+  background: #f7f1f1;
+  padding: 0 1.5em;
+  font-size: initial;
+}
+
+button.button-grocery {
+  border: none;
+  background: #FD8A8A;
+  color: white;
+  cursor: pointer;
+  transition: #FD8A8A 0.2s ease-out;
+}
+button.button-grocery:hover {
+  background: #A8D1D1;
+  color: #FD8A8A;
+}
+button.btn-delete-grocery {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: white;
+  font-size: 1.6rem;
 }
 
 body {

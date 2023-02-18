@@ -85,41 +85,26 @@
         </div>
       </div>
     </header>
-    <!-- <h1>
-        Todo List
-        <span>Get things done, one item at a time.</span>
-    </h1>
-    <section id="todo-list">
-        <div class="todo-list-grocery">
-            <h2>Lista Super Market</h2>
-            <div>
-                Aca se generara la lista
-            </div>
-            <div>
-                <form name="newform">
-                    <label for="newitem">Add to the todo list</label>
-                    <input type="text" name="newitem" id="newitem">
-                    <button type="submit">Add item</button>
-                </form>
-            </div>
-        </div>
-    </section> -->
+
     <main>
       <section class="grocerylist m-5">
-        <h2>To-do Gorcery List</h2>
-        <span>Get things done, one item at a time.</span>
-        
-        <form id="groceryForm" class="mt-14 mb-4 d-flex flex-column">
-          <label for="newitem">Add grocery</label>
-          <input type="text" name="newitem" id="itemInput" value="" />
-          <label for="newitem">Add price</label>
-          <input type="text" name="priceitem" id="itemPrice" value="" />
-          <button id="button-add" type="submit">Add item</button>
-        </form>
-        <div id="itemList"></div>
+        <div class="p-4">
+          <h2>To-do Gorcery List</h2>
+          <span class="d-flex justify-content-center pt-2">Get things done, one item at a time.</span>
+          <form id="groceryForm" class="mt-14 mb-4 d-flex flex-column">
+            <label for="newitem" class="pt-3">Add grocery</label>
+            <input type="text" name="newitem" id="itemInput" value="" class="pt-2 pb-2" />
+            <label for="newitem" class="pt-3">Add price</label>
+            <input type="text" name="priceitem" id="itemPrice" value="" class="pt-2 pb-2" />
+            <div class="pt-3">
+              <button id="button-add" type="submit" class="button-grocery p-2">Add item</button>
+            </div>
+          </form>
+        </div>
 
-        <h3>Suma tus items aproximado</h3>
-        <div>
+        <div id="itemList" class="d-flex flex-column"></div>
+        <div class="col-12 d-flex justify-content-between p-4"> 
+          <h4>Suma tus items aproximado</h4>
           <span id="result"></span>
         </div>
       </section>

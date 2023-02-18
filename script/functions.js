@@ -29,12 +29,14 @@ export function displayItems(key){
             if(element.active){
                 //mostrar elementos en HTML
                 let item = document.createElement("article");
-                item.classList.add("d-flex", "flex-row");
+                item.classList.add("col-12","d-flex", "flex-row", "justify-content-between", "align-items-center", "mb-2");
                 let description = document.createElement("div");
+                description.classList.add("col-10","d-flex", "flex-row", "justify-content-between", "align-items-center")
                 let itemName = document.createElement("label");
+                itemName.classList.add("ps-4")
                 let price = document.createElement("span");
                 itemName.innerHTML = element.item;
-                price.innerHTML = element.price;
+                price.innerHTML = `$ ${element.price}`;
 
                 description.appendChild(itemName);
                 description.appendChild(price);
@@ -42,6 +44,7 @@ export function displayItems(key){
                 let acctionsItems = document.createElement("div");
                 
                 let buttonDelete = document.createElement("button");
+                buttonDelete.classList.add("btn-delete-grocery","pt-3", "pb-3", "pe-4");
                 //buttonDelete.classList.add('delete-button');
 
                 buttonDelete.id= `delete-button-${element.idItem}`; //add class for each delete item
@@ -70,7 +73,7 @@ export function displayItems(key){
         });
         buttonsDelete = document.querySelectorAll(".delete-button");
         console.log(buttonsDelete);
-        let result = sumItemsPrice("itemsGrocery");
+        let result = `$ ${sumItemsPrice("itemsGrocery")}`;
         resultSpan.innerHTML = result;
     }
 

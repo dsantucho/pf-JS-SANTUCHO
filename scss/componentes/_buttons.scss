@@ -1,0 +1,21 @@
+button{
+    &.button-grocery{
+        border:none;
+        background:$color-red-pink;
+        color:$color-white;
+        cursor:pointer;
+        transition:$color-red-pink .2s ease-out;
+
+        &:hover {
+            background:$color-teal;
+            color: $color-red-pink;
+        }
+    }
+    &.btn-delete-grocery{
+        border:none;
+        background:none;
+        cursor:pointer;
+        color:$color-white;
+        font-size: $breakpoint-lg;
+    }
+}

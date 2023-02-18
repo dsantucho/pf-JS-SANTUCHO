@@ -1,7 +1,7 @@
 body {
   font-family: "Raleway";
   font-style: normal;
-header{
+    header{
     a{
         &.espaciado {
             letter-spacing: 7.5px;
@@ -19,28 +19,58 @@ header{
           }
         }
       }
-}
-main{
-    section{
-        &.grocerylist{
-            h2{
-                text-align:center;
-                font-weight:normal;
-                font-size:$breakpoint-lg;
-                letter-spacing:0.05em;
-                border-bottom:1px solid rgba(255,255,255,.3); 
-            }
-            span{
-                font-size:$breakpoint-sm;
-                margin-bottom:0.7rem;
-                margin-left:3px;
-                margin-top:0.2rem;  
-            }
-        }
     }
-}
+    main{
+        section{
+            &.grocerylist{
+                h2{
+                    text-align:center;
+                    font-weight:normal;
+                    font-size:$breakpoint-xxl;
+                    letter-spacing:0.05em;
+                    border-bottom:1px solid rgba(255,255,255,.3); 
+                }
+                span{
+                    font-size:$breakpoint-sm;
+                    margin-bottom:0.7rem;
+                    margin-left:3px;
+                    margin-top:0.2rem;  
+                }
+                &>div:last-of-type{
+                    h4,span{
+                        font-size:$breakpoint-lg;
+                    }
+                }
 
-footer{
+            }
+            form{
+                div{
+                    button{
+                        &.button-grocery{
+                            text-transform:uppercase;
+                            font-weight:bold;
+                            font-size: $breakpoint-md;
+                        }
+                    }
+                }
+            }
+
+                #itemList{
+                    article{
+                        div{
+                            label, span{
+                                font-size: $breakpoint-sm;
+                                font-style: normal;
+                            }
+                        }
+
+                    }
+                }
+
+    }
+    }
+
+    footer{
     div{
         span{
             &.copyright{
@@ -54,8 +84,8 @@ footer{
 
     }
 
-}
-  &.clipped {
+    }
+    &.clipped {
     /* Para esconder mis h1 lo googlee */
     clip: rect(0 0 0 0);
     border: 0;
@@ -67,5 +97,5 @@ footer{
     padding: 0;
     position: absolute;
     z-index: -1;
-  }
+    }
 }
