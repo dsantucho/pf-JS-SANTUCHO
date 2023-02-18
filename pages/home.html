@@ -88,27 +88,30 @@
     </header>
 
     <main>
-      <section class="grocerylist m-5">
-        <div class="p-4">
-          <h2>To-do Gorcery List</h2>
-          <span class="d-flex justify-content-center pt-2">Get things done, one item at a time.</span>
-          <form id="groceryForm" class="mt-14 mb-4 d-flex flex-column">
-            <label for="newitem" class="pt-3">Add grocery</label>
-            <input type="text" name="newitem" id="itemInput" value="" class="pt-2 pb-2" />
-            <label for="newitem" class="pt-3">Add price</label>
-            <input type="text" name="priceitem" id="itemPrice" value="" class="pt-2 pb-2" />
-            <div class="pt-3">
-              <button id="button-add" type="submit" class="button-grocery p-2">Add item</button>
-            </div>
-          </form>
-        </div>
+      <div class="container">
+        <section class="grocerylist m-5">
+          <div class="p-4">
+            <h2>To-do Gorcery List</h2>
+            <span class="d-flex justify-content-center pt-2">Get things done, one item at a time.</span>
+            <form id="groceryForm" class="mt-14 mb-4 d-flex flex-column">
+              <label for="newitem" class="pt-3">Add grocery</label>
+              <input type="text" name="newitem" id="itemInput" value="" class="pt-2 pb-2" />
+              <label for="newitem" class="pt-3">Add price</label>
+              <input type="text" name="priceitem" id="itemPrice" value="" class="pt-2 pb-2" />
+              <div class="pt-3">
+                <button id="button-add" type="submit" class="button-grocery p-2">Add item</button>
+              </div>
+            </form>
+          </div>
+  
+          <div id="itemList" class="d-flex flex-column"></div>
+          <div class="col-12 d-flex justify-content-between p-4"> 
+            <h4>Suma tus items aproximado</h4>
+            <span id="result"></span>
+          </div>
+        </section>
+      </div>
 
-        <div id="itemList" class="d-flex flex-column"></div>
-        <div class="col-12 d-flex justify-content-between p-4"> 
-          <h4>Suma tus items aproximado</h4>
-          <span id="result"></span>
-        </div>
-      </section>
     </main>
 
    <!-- Footer Section -->

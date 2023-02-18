@@ -12,6 +12,11 @@ body header nav.font-nav a {
   font-weight: 500;
   line-height: 25px;
 }
+@media (min-width: 992px) {
+  body header nav.font-nav a {
+    font-size: 2rem;
+  }
+}
 body main section.grocerylist h2 {
   text-align: center;
   font-weight: normal;
@@ -100,6 +105,11 @@ header nav ul li {
 img.icon-logo {
   max-height: 9.5rem;
   max-width: 9.5rem;
+}
+
+footer div a i {
+  font-size: 1.8rem;
+  color: #F1F7B5;
 }
 
 main section.grocerylist {

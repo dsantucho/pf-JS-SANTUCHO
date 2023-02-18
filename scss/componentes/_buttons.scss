@@ -18,4 +18,13 @@ button{
         color:$color-white;
         font-size: $breakpoint-lg;
     }
+//TODO mofidificar el span con la imangen del boton nav para mobile - no puedo darle estilos. 
+        // &.navbar-toggler{
+        //     border-radius: 0%;
+        //     border: 1px solid $color-yellow;
+        //     &.navbar-toggler-icon{
+        //         color: $color-yellow;
+        //     }
+        // }
+
 }
