@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
           `Nombre de usuario ${newUser.name} y su id: ${newUser.idUser}; password: ${newUser.password}`
         );
         functions.setLocalStorage("loginUser", newUser);
-        alert("Login successful");
+        //alert("Login successful");
         //redirect to Home Page
         window.location = "./pages/home.html";
       } else {
