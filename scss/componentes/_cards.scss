@@ -1,0 +1,41 @@
+main {
+  section {
+    &.grocerylist {
+      max-width: 500px;
+      background: $color-blue-violet;
+      color: #fff;
+      box-shadow: -10px -10px 0px 0px $color-teal;
+      #itemList {
+        article {
+          //background:$color-teal-light;
+          background: $color-blue-violet-light;
+        }
+      }
+      & > div:last-of-type {
+        background-color: $color-teal;
+        color: #000;
+        border: $color-blue-violet 2px solid;
+      }
+    }
+    #groceryForm {
+      input {
+        flex-grow: 1;
+        border: none;
+        background: #f7f1f1;
+        padding: 0 1.5em;
+        font-size: initial;
+      }
+    }
+    #loginForm {
+      input {
+        &.login-form-filds {
+          flex-grow: 1;
+          border: $color-blue-violet-light;
+          background: #f7f1f1;
+          padding: 0 1.5em;
+          font-size: initial;
+        }
+      }
+    }
+  }
+}

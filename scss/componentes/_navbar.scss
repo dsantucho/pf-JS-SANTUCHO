@@ -1,0 +1,37 @@
+@import '../utils/variables';
+
+header {
+    border-bottom: solid 1px rgb(198, 179, 179);
+    transition   : all 0.5s ease;
+    z-index      : 10;
+
+    &:hover {
+        box-shadow: 2px 6px 15px rgba(101, 82, 82, 0.1);
+    }
+
+    // div {
+    //     &.navbar-toggle-container {
+            
+    //     }
+    //     a{
+
+    //     }
+    // }
+
+    nav {
+        // @include tablet-lg() {
+        //     flex-grow: 0!important;
+        // }
+
+        ul {
+            li {
+                display: inline-block;
+
+                // a {                
+                //     &.active {              
+                //     }
+                // }
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+img{
+    &.icon-logo{
+        max-height:$icon-sm; 
+        max-width:$icon-sm; 
+    }
+}
+
+footer{
+    div{
+        a{
+            i{
+                font-size: $breakpoint-xl;
+                color: $color-yellow;
+            }
+        }
+    }
+}

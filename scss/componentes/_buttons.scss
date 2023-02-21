@@ -1,0 +1,53 @@
+button {
+  &.button-grocery {
+    border: none;
+    background: $color-red-pink;
+    color: $color-white;
+    cursor: pointer;
+    transition: $color-red-pink 0.2s ease-out;
+
+    &:hover {
+      background: $color-teal;
+      color: $color-red-pink;
+    }
+  }
+  &.btn-delete-grocery {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: $color-white;
+    font-size: $breakpoint-lg;
+  }
+  //TODO mofidificar el span con la imangen del boton nav para mobile - no puedo darle estilos.
+  // &.navbar-toggler{
+  //     border-radius: 0%;
+  //     border: 1px solid $color-yellow;
+  //     &.navbar-toggler-icon{
+  //         color: $color-yellow;
+  //     }
+  // }
+  &#limpiar-local{
+    border: none;
+    background-color: $color-red-pink;
+    color: $color-white;
+    font-size: $breakpoint-lg;
+  }
+}
+section {
+  form {
+    // max-width: 320px;
+    // left: calc(50% - 160px);
+    &#loginForm {
+      input#login-button {
+        border: none;
+        background-color: $color-blue-violet;
+        color: $color-white;
+        cursor: pointer;
+        font-size: $breakpoint-lg;
+      }
+    }
+    // &#otroForm{
+    //     // background-color: black;
+    // }
+  }
+}
