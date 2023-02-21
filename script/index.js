@@ -10,7 +10,6 @@ let resFilter;
 //formularios
 document.addEventListener("DOMContentLoaded", function () {
   functions.displayItems("itemsGrocery");
-  var form2 = document.getElementById("form2");
   let myFormLogin = document.getElementById("loginForm");
   //add item in grocery
   const groceryForm = document.getElementById("groceryForm");
@@ -58,8 +57,17 @@ document.addEventListener("DOMContentLoaded", function () {
       //display sum
       let result = functions.sumItemsPrice("itemsGrocery");
       resultSpan.innerHTML = result;
+
+      //clean 
+      document.getElementById("itemInput").value = '';
+      document.getElementById("itemPrice").value = '';
     }
   }
+});
+
+let localStorageButton = document.getElementById("limpiar-local");
+localStorageButton.addEventListener("click", function() {
+  localStorage.clear();
 });
 
 

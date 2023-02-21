@@ -8,6 +8,18 @@ html{
     font-size: 62.5%;
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &>*{
+        flex: 0 0 auto;
+    }
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
 ul, ol{
     list-style: none;
 }

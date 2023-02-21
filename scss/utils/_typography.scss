@@ -3,94 +3,101 @@
 body {
   font-family: "Raleway";
   font-style: normal;
-    header{
-    a{
-        &.espaciado {
-            letter-spacing: 7.5px;
-            text-transform: uppercase;
-            line-height: 28px;
-            font-size: $breakpoint-md;
-          }
+  header {
+    a {
+      &.espaciado {
+        letter-spacing: 7.5px;
+        text-transform: uppercase;
+        line-height: 28px;
+        font-size: $breakpoint-md;
+      }
     }
 
-      nav {
-        &.font-nav {
-          a {
-            font-weight: 500;
-            line-height: 25px;
-            @include tablet-lg(){
-                font-size: $breakpoint-xxl;
-            }
+    nav {
+      &.font-nav {
+        a {
+          font-weight: 500;
+          line-height: 25px;
+          @include tablet-lg() {
+            font-size: $breakpoint-xxl;
           }
         }
       }
     }
-    main{
-        section{
-            &.grocerylist{
-                h2{
-                    text-align:center;
-                    font-weight:normal;
-                    font-size:$breakpoint-xxl;
-                    letter-spacing:0.05em;
-                    border-bottom:1px solid rgba(255,255,255,.3); 
-                }
-                span{
-                    font-size:$breakpoint-sm;
-                    margin-bottom:0.7rem;
-                    margin-left:3px;
-                    margin-top:0.2rem;  
-                }
-                &>div:last-of-type{
-                    h4,span{
-                        font-size:$breakpoint-lg;
-                    }
-                }
-
-            }
-            form{
-                div{
-                    button{
-                        &.button-grocery{
-                            text-transform:uppercase;
-                            font-weight:bold;
-                            font-size: $breakpoint-md;
-                        }
-                    }
-                }
-            }
-
-                #itemList{
-                    article{
-                        div{
-                            label, span{
-                                font-size: $breakpoint-sm;
-                                font-style: normal;
-                            }
-                        }
-
-                    }
-                }
-
-    }
-    }
-
-    footer{
-    div{
-        span{
-            &.copyright{
-                // font-family: 'Inter';
-                // font-style : normal;
-                font-weight: 400;
-                font-size  : $breakpoint-none;
-                line-height: 17px;
-            }
+  }
+  main {
+    section {
+      &.grocerylist {
+        h2 {
+          text-align: center;
+          font-weight: normal;
+          font-size: $breakpoint-xxl;
+          letter-spacing: 0.05em;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         }
+        span {
+          font-size: $breakpoint-sm;
+          margin-bottom: 0.7rem;
+          margin-left: 3px;
+          margin-top: 0.2rem;
+        }
+        & > div:last-of-type {
+          h4,
+          span {
+            font-size: $breakpoint-lg;
+          }
+        }
+      }
 
-    }
+      form {
+        div {
+          button {
+            &.button-grocery {
+              text-transform: uppercase;
+              font-weight: bold;
+              font-size: $breakpoint-md;
+            }
+          }
+        }
+      }
 
+      #itemList {
+        article {
+          div {
+            label,
+            span {
+              font-size: $breakpoint-sm;
+              font-style: normal;
+            }
+          }
+        }
+      }
+      div{
+        span{
+            &.advertencia {
+            font-size: $breakpoint-lg;
+            color: $color-red-pink;
+    
+          }
+        }
+      }
     }
-    &.clipped {
+  }
+
+  footer {
+    div {
+      span {
+        &.copyright {
+          // font-family: 'Inter';
+          // font-style : normal;
+          font-weight: 400;
+          font-size: $breakpoint-none;
+          line-height: 17px;
+        }
+      }
+    }
+  }
+  &.clipped {
     /* Para esconder mis h1 lo googlee */
     clip: rect(0 0 0 0);
     border: 0;
@@ -102,5 +109,5 @@ body {
     padding: 0;
     position: absolute;
     z-index: -1;
-    }
+  }
 }
