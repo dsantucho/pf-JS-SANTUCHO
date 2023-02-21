@@ -68,6 +68,8 @@ document.addEventListener("DOMContentLoaded", function () {
 let localStorageButton = document.getElementById("limpiar-local");
 localStorageButton.addEventListener("click", function() {
   localStorage.clear();
+  // localStorageButton.innerHTML = 'Listo LocalStorage!'
+  document.getElementById('text-advertencia').innerHTML = 'Estas Listo para empezar! '
 });
 
 
