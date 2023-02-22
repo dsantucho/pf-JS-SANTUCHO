@@ -85,9 +85,13 @@ export function saveItemSupermarket(item, price, idUser,key) {
     //1 - Verify that exist local storage : sum new item => else: create arr new
     auxArr = getLocalStorage(key);
     console.log('AUX = ' + auxArr);
+
     if(auxArr !== null){
+        let lengthAux = auxArr.length;
+        console.log('length: '+lengthAux);
         //take the JSON using getLocal and add a new item into the same JSON.
-        const newItem = new itemSuper(idItem++, idUser, item, parseFloat(price));
+        //TODO: hay un error en el idItem - si hago refresh arranca de 0 
+        const newItem = new itemSuper(lengthAux++, idUser, item, parseFloat(price));
         auxArr.push(newItem);
         setLocalStorage(key,auxArr);
         console.log(`*** New item has been saved in localStorage ${key} ***`)
@@ -98,7 +102,7 @@ export function saveItemSupermarket(item, price, idUser,key) {
     }else{
         //new
         auxArr = [];
-        const newItem = new itemSuper(idItem++, idUser, item, parseFloat(price));
+        const newItem = new itemSuper(0, idUser, item, parseFloat(price));
         auxArr.push(newItem);
         setLocalStorage(key,auxArr);
         console.log(`*** New localStorage ${key} has been created with new item ***`)
