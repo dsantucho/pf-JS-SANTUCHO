@@ -128,7 +128,7 @@ export function sumItemsPrice(key){
         }
       });
       console.log(result)
-      return parseFloat(result);
+      return parseFloat(result).toFixed(2);
       //    result = values.reduce((accumulator, object) => {
       //     return accumulator = accumulator + parseInt(object.price);
       //   }, 0);
