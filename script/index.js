@@ -9,8 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
   let buttonGoHome = document.getElementById("button-go-home");
   buttonGoHome.addEventListener('click', function(){
     if(!(functions.getLocalStorage("loginUser"))){
-      window.location = "./index.html";
+      swal("User not found", "Please enter User and Passwors", "error");
     }
+      //window.location = "./index.html";
+
   })
 
   let myFormLogin = document.getElementById("loginForm");
