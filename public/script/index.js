@@ -8,11 +8,7 @@ import { itemSuper, user } from "./objetos.js";
 document.addEventListener("DOMContentLoaded", function () {
   let buttonGoHome = document.getElementById("button-go-home");
   buttonGoHome.addEventListener('click', function(){
-    if(!(functions.getLocalStorage("loginUser"))){
-      swal("User not found", "Please enter User and Passwors", "error");
-    }
-      //window.location = "./index.html";
-
+    (!(functions.getLocalStorage("loginUser"))) ? swal("User not found", "Please enter User and Passwors", "error") : window.location = "./pages/home.html";
   })
 
   let myFormLogin = document.getElementById("loginForm");
@@ -24,15 +20,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (username !== "" && password !== "") {
       const newUser = new user(username, password);
-      console.log(
-        `Nombre de usuario ${newUser.name} y su id: ${newUser.idUser}; password: ${newUser.password}`
-      );
+      console.log(`Nombre de usuario ${newUser.name} y su id: ${newUser.idUser}; password: ${newUser.password}`);
       functions.setLocalStorage("loginUser", newUser);
-      //alert("Login successful");
       //redirect to Home Page
       window.location = "./pages/home.html";
     } else {
-      alert("Wrong username or password, refresh [F5] the webpage please");
+      swal("Something went wrong", "Wrong username or password, refresh [F5] the webpage please", "warning");
+     
     }
   }
 });
