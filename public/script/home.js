@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if(!(functions.getLocalStorage("loginUser"))){
         window.location = "../index.html";
     }
+    let userAux = functions.getLocalStorage("loginUser");
+
     functions.displayItems("itemsGrocery"); //if empty -> console.log
     //add item in grocery
     const groceryForm = document.getElementById("groceryForm");

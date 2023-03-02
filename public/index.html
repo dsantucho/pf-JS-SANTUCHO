@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Boostrap Icons-->
@@ -19,6 +19,7 @@
 </head>
 
 <body>
+
     <header class="navbar navbar-expand-lg">
         <!-- nav + logo -->
         <div class="container justify-content-center col-lg-12 justify-content-lg-evenly">
@@ -27,11 +28,12 @@
                     class="col-11 d-flex flex-column align-items-center justify-content-center flex-lg-row col-lg-6 justify-content-lg-evenly">
                     <div class="col-11 d-flex justify-content-center col-lg-3">
                         <a class="">
-                            <img src="./src/image/3754169.jpg" alt="CouplesCoop Logo" class="icon-logo"/>
+                            <img src="./src/image/3754169.jpg" alt="CouplesCoop Logo" class="icon-logo" />
                         </a>
                     </div>
                     <div class="col-11 d-flex justify-content-center m-2 col-lg-3">
-                        <a class="espaciado">CouplesCoop!</a> <!--href="./home.html" -->
+                        <a class="espaciado">CouplesCoop!</a>
+                        <!--href="./home.html" -->
                     </div>
                 </div>
                 <!-- button mobile-->
@@ -48,29 +50,28 @@
                     <span class="navbar-toggler-icon"></span>
                   </button>
                 </div>-->
-                
-                <nav class="col-lg-5 collapse navbar-collapse justify-content-end align-items-center font-nav" id="navbarNav">
-                  <ul class="navbar-nav header-nav">
-                    <li class="nav-item p-2">
-                      <a
-                        id="button-go-home"
-                        class="nav-link active fw-semibold"
-                        aria-current="page"            
-                        >Go Home</a>
-                    </li>
-                    <!--href="./pages/home.html"-->
-                    <!-- <li class="nav-item p-2">
+
+                <nav class="col-lg-5 collapse navbar-collapse justify-content-end align-items-center font-nav"
+                    id="navbarNav">
+                    <ul class="navbar-nav header-nav">
+                        <li class="nav-item p-2">
+                            <a id="button-go-home" class="nav-link active fw-semibold" aria-current="page">Go Home</a>
+                        </li>
+                        <!--href="./pages/home.html"-->
+                        <!-- <li class="nav-item p-2">
                       <a class="nav-link" href="./pages/profile.html">Register</a>
                     </li> -->
-                  </ul>
+                    </ul>
                 </nav>
             </div>
         </div>
     </header>
+
     <main>
-        <section >
+        <section>
             <div class="container">
-                <div class="col-12 p-4 d-flex flex-column justify-content-center align-items-center col-lg-6 offset-lg-3">
+                <div
+                    class="col-12 p-4 d-flex flex-column justify-content-center align-items-center col-lg-6 offset-lg-3">
                     <h2>Login Form</h2>
                     <p>
                         Bienvenido, esta por comenzar el proceso de crear tu lista de
@@ -86,15 +87,14 @@
                     <div class="col-12 ps-4 pe-4 d-flex flex-column justify-content-center col-lg-6 offset-lg-3">
                         <label for="username">Username:</label>
                         <input type="text" id="username" name="username" class="login-form-filds" />
-    
+
                         <label for="password">Password:</label>
                         <input type="password" id="password" name="password" class="login-form-filds" />
                     </div>
 
-                    <div class="col-6 p-3 col-lg-6 offset-lg-3 ">
+                    <div class="col-6 p-3 col-lg-6 offset-lg-3">
                         <input id="login-button" type="submit" value="Login" class="ps-3 pe-3 pt-2 pb-2" />
                     </div>
-                    
                 </form>
             </div>
         </section>
@@ -104,16 +104,14 @@
                 <span id="text-advertencia" class="advertencia">
                     Advertencia!: antes de empezar limpiar LocalStorage [el user].
                 </span>
-                <span class="advertencia">
-                    Proximamente: - save users & items
-                </span>
+                <span class="advertencia"> Proximamente: - save users & items </span>
             </div>
             <div class="container col-12 col-lg-6 offset-lg-3">
                 <button id="limpiar-local">Limpiar LocalStorage</button>
             </div>
         </section>
-
     </main>
+
     <!-- Footer Section -->
     <footer class="my-footer">
         <div class="container">
@@ -133,6 +131,10 @@
 
     <!-- **** Zona scripts ***** -->
     <script src="./script/index.js" type="module"></script>
+    <!-- Toastify futuras teatures
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script> -->
+    <!-- Luxon -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
 
     <!--Script Animate On Scroll Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

@@ -17,11 +17,11 @@ export function getLocalStorage(key) {
 }
 
 // tomar el user
-export function getUserDestructuring(usuario){
-  if(getLocalStorage("loginUser")){
+export function getUserDestructuring(usuario) {
+  if (getLocalStorage("loginUser")) {
     usuario = getLocalStorage("loginUser");
-    const {name, password, idUser} = usuario;
-  } else{
+    const { name, password, idUser } = usuario;
+  } else {
     usuario = [];
   }
 }
@@ -39,11 +39,24 @@ export function displayItems(key) {
       if (element.active) {
         //mostrar elementos en HTML
         let item = document.createElement("article");
-        item.classList.add("col-12","d-flex", "flex-row", "justify-content-between", "align-items-center", "mb-2");
+        item.classList.add(
+          "col-12",
+          "d-flex",
+          "flex-row",
+          "justify-content-between",
+          "align-items-center",
+          "mb-2"
+        );
         let description = document.createElement("div");
-        description.classList.add("col-10","d-flex", "flex-row", "justify-content-between", "align-items-center")
+        description.classList.add(
+          "col-10",
+          "d-flex",
+          "flex-row",
+          "justify-content-between",
+          "align-items-center"
+        );
         let itemName = document.createElement("label");
-        itemName.classList.add("ps-4")
+        itemName.classList.add("ps-4");
         let price = document.createElement("span");
         itemName.innerHTML = element.item;
         price.innerHTML = `$ ${element.price}`;
@@ -52,17 +65,46 @@ export function displayItems(key) {
         // Create the delete icon element
         let acctionsItems = document.createElement("div");
         let buttonDelete = document.createElement("button");
-        buttonDelete.classList.add("btn-delete-grocery","pt-3", "pb-3", "pe-4");
+        buttonDelete.classList.add(
+          "btn-delete-grocery",
+          "pt-3",
+          "pb-3",
+          "pe-4"
+        );
         //buttonDelete.classList.add('delete-button');
-        buttonDelete.id= `delete-button-${element.idItem}`; //add class for each delete item
+        buttonDelete.id = `delete-button-${element.idItem}`; //add class for each delete item
+        //**** DELETE EVENT ****/
         buttonDelete.addEventListener("click", () => {
-            console.log(`click ${element.idItem}`);
-            element.active = false;
-            setLocalStorage(key,values)
-            displayItems(key)
-            let result = sumItemsPrice("itemsGrocery");
-            resultSpan.innerHTML = result;
+          console.log(`click DELETE: ${element.idItem}`);
+          swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this item!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              element.active = false;
+              setLocalStorage(key, values);
+              displayItems(key);
+              let result = sumItemsPrice("itemsGrocery");
+              resultSpan.innerHTML = result;
+              swal("Poof! Your item has been deleted!", {
+                icon: "success",
+                text: `Item deleted was = ${element.item}, and price $ ${element.price}`
+              });
+
+            } else {
+              swal("Your item is safe!");
+            }
           });
+          
+          // setLocalStorage(key, values);
+          // displayItems(key);
+          // let result = sumItemsPrice("itemsGrocery");
+          // resultSpan.innerHTML = result;
+        });
         let deleteIcon = document.createElement("i");
         deleteIcon.classList.add("bi", "bi-trash");
         acctionsItems.appendChild(buttonDelete);
@@ -90,10 +132,8 @@ export function saveItemSupermarket(item, price, idUser, key) {
     console.log("length: " + lengthAux);
     //take the JSON using getLocal and add a new item into the same JSON.
     const newItem = new itemSuper(lengthAux++, idUser, item, parseFloat(price));
-    auxArr = [
-      ...auxArr,
-      newItem
-    ]
+    //o auxArr.push({...auxArr, newItem})
+    auxArr = [...auxArr, newItem];
     console.log(`Ahora AUX ARR CONTIENE: ${auxArr}`);
     setLocalStorage(key, auxArr);
     console.log(`*** New item has been saved in localStorage ${key} ***`);
@@ -106,10 +146,7 @@ export function saveItemSupermarket(item, price, idUser, key) {
       `*** New localStorage ${key} has been created with new item ***`
     );
     const newItem = new itemSuper(0, idUser, item, parseFloat(price));
-    auxArr = [
-      ...auxArr,
-      newItem
-    ]
+    auxArr = [...auxArr, newItem];
     setLocalStorage(key, auxArr);
     console.log(
       `ADD NewItem ==> producto:${newItem.item}; precio: ${newItem.price}`
@@ -120,19 +157,15 @@ export function saveItemSupermarket(item, price, idUser, key) {
 //Sum items active=true
 export function sumItemsPrice(key) {
   let result = 0.0;
-  const values = getLocalStorage(key);
-  console.log(values);
-  if (values == null) {
-    return (result = "grocery list is empty");
-  } else if (values != null) {
+  const values = getLocalStorage(key) || [];
+  if(values.length !== 0){
     values.forEach((element) => {
-      if (element.active) {
-        result = result + parseFloat(element.price);
-      }
+          if (element.active) {
+            result = result + parseFloat(element.price);
+          }
     });
-    console.log(result);
     return parseFloat(result).toFixed(2);
-  } else {
+  }else{
     return (result = "grocery list is empty");
   }
 }

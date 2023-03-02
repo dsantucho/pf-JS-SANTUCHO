@@ -1,3 +1,4 @@
+const DateTime = luxon.DateTime;
 //classes
 export class itemSuper {
   constructor(idItem, user, item, price) {
@@ -5,7 +6,10 @@ export class itemSuper {
     this.user = user;
     this.item = item;
     this.price = parseFloat(price);
-    this.date = new Date().toDateString(); // agrego fecha => 'Sun Feb 05 2023'
+    var now = DateTime.now()
+    console.log(now.setLocale('es').toLocaleString())
+    this.date = now.setLocale('es').toLocaleString(DateTime.DATETIME_SHORT);
+    //this.date = new Date().toDateString(); // agrego fecha => 'Sun Feb 05 2023'
     this.active = true; // es para luego poder eliminar items de la lista
   }
   setActiveTrue() {
