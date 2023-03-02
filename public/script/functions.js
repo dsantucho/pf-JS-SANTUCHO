@@ -16,6 +16,15 @@ export function getLocalStorage(key) {
   return value;
 }
 
+// tomar el user
+export function getUserDestructuring(usuario){
+  if(getLocalStorage("loginUser")){
+    usuario = getLocalStorage("loginUser");
+    const {name, password, idUser} = usuario;
+  } else{
+    usuario = [];
+  }
+}
 
 export function displayItems(key) {
   console.log("entre displayItems(key)");
@@ -75,15 +84,17 @@ export function displayItems(key) {
 //Crear un nuevo itemSuper
 export function saveItemSupermarket(item, price, idUser, key) {
   //1 - Verify that exist local storage : sum new item => else: create arr new
-  auxArr = getLocalStorage(key);
-  console.log("AUX = " + auxArr);
-
-  if (auxArr !== null) {
+  auxArr = getLocalStorage(key) || [];
+  if (auxArr.length !== 0) {
     let lengthAux = auxArr.length;
     console.log("length: " + lengthAux);
     //take the JSON using getLocal and add a new item into the same JSON.
     const newItem = new itemSuper(lengthAux++, idUser, item, parseFloat(price));
-    auxArr.push(newItem);
+    auxArr = [
+      ...auxArr,
+      newItem
+    ]
+    console.log(`Ahora AUX ARR CONTIENE: ${auxArr}`);
     setLocalStorage(key, auxArr);
     console.log(`*** New item has been saved in localStorage ${key} ***`);
     console.log(
@@ -91,13 +102,15 @@ export function saveItemSupermarket(item, price, idUser, key) {
     ); //muestra todo la info
   } else {
     //new
-    auxArr = [];
-    const newItem = new itemSuper(0, idUser, item, parseFloat(price));
-    auxArr.push(newItem);
-    setLocalStorage(key, auxArr);
     console.log(
       `*** New localStorage ${key} has been created with new item ***`
     );
+    const newItem = new itemSuper(0, idUser, item, parseFloat(price));
+    auxArr = [
+      ...auxArr,
+      newItem
+    ]
+    setLocalStorage(key, auxArr);
     console.log(
       `ADD NewItem ==> producto:${newItem.item}; precio: ${newItem.price}`
     ); //muestra todo la info
