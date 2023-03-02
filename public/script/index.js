@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
   })
 
   let myFormLogin = document.getElementById("loginForm");
-  myFormLogin.addEventListener("submit", validateForm);
-  function validateForm(event) {
+  myFormLogin.addEventListener("submit", validateFormLogin);
+  function validateFormLogin(event) {
     event.preventDefault(); //prevent the default behavior of the submit event, which would typically refresh the page.
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
