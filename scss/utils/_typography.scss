@@ -81,6 +81,43 @@ body {
           }
         }
       }
+      &#starwars{
+        div{
+          h2{
+            text-align: center;
+            font-weight: normal;
+            font-size: $breakpoint-xxl;
+            letter-spacing: 0.05em;
+            color: $color-white;
+          }
+          &#loading{
+            text-align: center;
+            font-weight: normal;
+            font-size: $breakpoint-xxl;
+            letter-spacing: 0.08em;
+            }
+
+          div{
+            table{
+              thead{
+                tr{
+                  font-weight: normal;
+                  font-size: $breakpoint-lg;
+                  letter-spacing: 0.05em;
+                }
+              }
+              tbody{
+                tr{
+                  font-weight: normal;
+                  font-size: $breakpoint-md;
+                  color: $color-white;
+                }
+              }
+            }
+          }
+        }
+
+      }
     }
   }
 

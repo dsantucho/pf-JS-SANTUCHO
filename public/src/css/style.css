@@ -48,6 +48,29 @@ body main section div span.advertencia {
   font-size: 1.6rem;
   color: #FD8A8A;
 }
+body main section#starwars div h2 {
+  text-align: center;
+  font-weight: normal;
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+  color: white;
+}
+body main section#starwars div#loading {
+  text-align: center;
+  font-weight: normal;
+  font-size: 2rem;
+  letter-spacing: 0.08em;
+}
+body main section#starwars div div table thead tr {
+  font-weight: normal;
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+}
+body main section#starwars div div table tbody tr {
+  font-weight: normal;
+  font-size: 1.4rem;
+  color: white;
+}
 body footer div span.copyright {
   font-weight: 400;
   font-size: 1rem;
@@ -125,6 +148,16 @@ img.icon-logo {
   max-width: 9.5rem;
 }
 
+table tbody tr td div.input-group-text {
+  border-radius: 0rem;
+  background-color: #222d2e;
+  border: 0px;
+}
+table tbody tr td div.input-group-text input {
+  height: 18px;
+  width: 18px;
+}
+
 footer div a i {
   font-size: 1.8rem;
   color: #F1F7B5;
@@ -132,6 +165,7 @@ footer div a i {
 
 main section.grocerylist {
   max-width: 500px;
+  min-width: 50%;
   background: #9EA1D4;
   color: #fff;
   box-shadow: -10px -10px 0px 0px #A8D1D1;
@@ -143,6 +177,25 @@ main section.grocerylist > div:last-of-type {
   background-color: #A8D1D1;
   color: #000;
   border: #9EA1D4 2px solid;
+}
+main section.choreslist {
+  max-width: 500px;
+  min-width: 50%;
+  background: #9EA1D4;
+  color: #fff;
+  box-shadow: -10px -10px 0px 0px #A8D1D1;
+}
+main section.choreslist #itemList article {
+  background: rgba(138, 143, 226, 0.8392156863);
+}
+main section.swlist {
+  background: #222d2e;
+  color: white;
+  box-shadow: -10px -10px 0px 0px #5d5d54;
+  border: #c2301e 2px solid;
+}
+main section.swlist table th {
+  color: white;
 }
 main section #groceryForm input {
   flex-grow: 1;
@@ -157,6 +210,9 @@ main section #loginForm input.login-form-filds {
   background: #f7f1f1;
   padding: 0 1.5em;
   font-size: initial;
+}
+main section div div#loading {
+  color: #c2301e;
 }
 
 button.button-grocery {

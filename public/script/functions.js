@@ -16,6 +16,7 @@ export function getLocalStorage(key) {
   return value;
 }
 
+// ***** Grocery list functions *****
 // tomar el user
 export function getUserDestructuring(usuario) {
   if (getLocalStorage("loginUser")) {
@@ -168,4 +169,54 @@ export function sumItemsPrice(key) {
   }else{
     return (result = "grocery list is empty");
   }
+}
+
+// ***** Chores list functions *****
+
+//***** Star Wars Cards *****
+export function createSWcards(lista, el){
+  lista.innerHTML += `
+  <tr>
+    <th scope="row">${el.episode_id}</th>
+    <td>${el.title}</td>
+    <td>${el.director}</td>
+    <td>${el.release_date}</td>
+    <td>    
+      <div class="input-group-text w-25 p-2">
+      <input type="checkbox" aria-label="Checkbox for following text input">
+      </div>
+    </td>
+  </tr>
+  `;
+}
+
+export async function getFilmsSW(lista){
+  const loading = document.querySelector('#loading');
+  const error = document.querySelector('#error');
+  try {
+    loading.style.display = 'block';
+    error.style.display = 'none';
+    
+    const data = await fetch("https://swapi.dev/api/films");
+    const res = await data.json();
+    // Sort the array by the ID of each element
+    res.results.sort((a, b) => a.episode_id - b.episode_id).forEach((element) => {
+      createSWcards(lista, element);
+    });
+    
+    loading.style.display = 'none';
+  } catch (err) {
+    console.error(err);
+    error.style.display = 'block';
+    loading.style.display = 'none';
+  }
+}
+
+
+
+export function markAsViewSW(){
+  //traer mi JSON donde guardo por id_episode cual ya vimos 
+  //buscar JS
+  //si no exite: crear uno nuevo al momento de marcar como vista
+  //si exite el JSON traerlo y marcar en la card como vista
 }

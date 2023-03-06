@@ -3,19 +3,18 @@ import { itemSuper, user } from "./objetos.js";
 
 //variables
 
+
 //formularios
 document.addEventListener("DOMContentLoaded", function () {
     if(!(functions.getLocalStorage("loginUser"))){
         window.location = "../index.html";
     }
     let userAux = functions.getLocalStorage("loginUser");
-
+    // ***** DISPLEY GROCERY 
     functions.displayItems("itemsGrocery"); //if empty -> console.log
-    //add item in grocery
+    // **** add item in grocery List *****
     const groceryForm = document.getElementById("groceryForm");
-
     groceryForm.addEventListener("submit", addItem);
-
     function addItem(event) {
         event.preventDefault();
 
@@ -52,5 +51,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     }
+    //***** TODO CHORES *****
+
+    //***** STAR WARS SECTION *****
+    const lista = document.querySelector("#lista");
+    const res = functions.getFilmsSW(lista);
 
 });

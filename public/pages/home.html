@@ -85,7 +85,7 @@
     </header>
 
     <main>
-      <div class="container">
+      <div class="container d-lg-flex col-lg-12 justify-content-around">
         <section class="grocerylist m-5">
           <div class="p-4">
             <h2>To-do Grocery List</h2>
@@ -110,8 +110,62 @@
             </div>
           </div>
         </section>
+        <section class="choreslist m-5">
+          <div class="p-4">
+            <h2>To-do Chores List</h2>
+            <span class="d-flex justify-content-center pt-2">Get things done, one item at a time.</span>
+            <form id="choresForm" class="mt-14 mb-4 d-flex flex-column">
+              <label for="newchore" class="pt-3">Add chore</label>
+              <input type="text" name="newchore" id="choreInput" value="" class="pt-2 pb-2" />
+              <div class="pt-3">
+                <button id="button-add-chore" type="submit" class="button-grocery p-2">Add</button>
+              </div>
+            </form>
+          </div>
+        </section>
       </div>
-
+      <div class="container">
+        <section id="starwars" class="swlist m-5">
+          <div class="p-4">
+            <h2>Annual Challenge Star Wars Saga </h2>
+            <div id="loading" class="m-5 p-3">Loading...</div>
+            <div id="error"></div>
+            <div>
+              <table id="sw-table" class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Episode</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Director</th>
+                    <th scope="col">Release</th>
+                    <th scope="col">Wacht it</th>
+                  </tr>
+                </thead>
+                <tbody id="lista">
+                  <!-- <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr> -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
 
 <!-- Footer Section -->
@@ -136,6 +190,7 @@
 
 <script src="../script/index.js" type="module"></script>
 <script src="../script/home.js" type="module"></script>
+<script src="../script/functions.js"></script>
  <!-- Toastify implementar futuras features
  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script> -->
 <!--Sweet Alert -->

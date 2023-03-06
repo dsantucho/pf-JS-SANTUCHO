@@ -26,3 +26,10 @@ export class user {
     this.password = password;
   }
 }
+
+export class filmsSW{
+  constructor(id_episode, active){
+    this.id_episode = id_episode;
+    this.active = false;
+  }
+}
