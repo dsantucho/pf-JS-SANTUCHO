@@ -6,6 +6,7 @@ let auxArr = [];
 let buttonsDelete = [];
 const resultSpan = document.getElementById("result");
 
+
 // ******* LOCAL STORAGE FUNTION ******* //
 export function setLocalStorage(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
@@ -173,6 +174,30 @@ export function sumItemsPrice(key) {
 
 // ***** Chores list functions *****
 
+export function displeySWchecked(){
+  let tableRows = lista.querySelectorAll("tbody > tr");
+  let SWListJSON = getLocalStorage('starWarsListChecked') || []
+  tableRows.forEach((row) => {
+    const cellId = row.querySelectorAll("th")
+    const cells = row.querySelectorAll("td");
+    const episodeId = `checkMovie-${cellId[0].textContent}`;
+    let checkbox = row.querySelector(`#${episodeId}`);//row.querySelector("input[type='checkbox']");
+    let isChecked = checkbox.checked;
+            
+    // do something with the data...
+    console.log('*** REVISAR CHECK***')
+
+    if(SWListJSON.length !== 0){
+        SWListJSON.forEach((e)=>{
+          console.log(`** SWListedChecked entre al for each compara: JSON => ${e} ; y tabla => ${episodeId}`) 
+          if(e == episodeId){
+            checkbox.checked = true;
+          }
+        });
+    }
+  }); 
+}
+
 //***** Star Wars Cards *****
 export function createSWcards(lista, el){
   lista.innerHTML += `
@@ -183,11 +208,12 @@ export function createSWcards(lista, el){
     <td>${el.release_date}</td>
     <td>    
       <div class="input-group-text w-25 p-2">
-      <input type="checkbox" aria-label="Checkbox for following text input">
+      <input id="checkMovie-${el.episode_id}" type="checkbox" aria-label="Checkbox for following text input">
       </div>
     </td>
   </tr>
   `;
+
 }
 
 export async function getFilmsSW(lista){
@@ -196,14 +222,51 @@ export async function getFilmsSW(lista){
   try {
     loading.style.display = 'block';
     error.style.display = 'none';
-    
+    console.log("ingreso al fetch => puede demorar en cargar")
     const data = await fetch("https://swapi.dev/api/films");
     const res = await data.json();
+    console.log(res)
+    console.log("fin fetch -> enter sort & foreach para displey")
     // Sort the array by the ID of each element
     res.results.sort((a, b) => a.episode_id - b.episode_id).forEach((element) => {
       createSWcards(lista, element);
+    });//end foreach
+    displeySWchecked();
+    //**** WATCH EVENT ****/
+    // get all the checkboxes based on their IDs
+    const checkboxes = document.querySelectorAll('[id^="checkMovie-"]');
+    // iterate over the checkboxes and add an event listener
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener('click', (event) => {
+        if (event.target.checked) {
+          // the checkbox was checked
+          //console.log(checkbox.id)
+          //let value = checkbox.id
+          let auxArr = getLocalStorage('starWarsListChecked') || [];
+          if(auxArr.length !== 0){
+            auxArr = [...auxArr, checkbox.id];
+            console.log(`Ahora AUX ARR CONTIENE: ${auxArr}`);
+            setLocalStorage('starWarsListChecked', auxArr);
+          }else{
+            console.log('*** New check => create LocalStorage');
+            auxArr = [checkbox.id];
+            setLocalStorage('starWarsListChecked', auxArr);
+          }
+        } else {
+          console.log("*** entrar al else eliminar ***");
+          let auxArr = getLocalStorage('starWarsListChecked') || [];
+          // the checkbox was unchecked => delete item from LocalStorage
+          if(auxArr.length !== 0){
+            let dato = auxArr.find((item) => item === checkbox.id);
+            //delete dato of auxArr
+            auxArr = auxArr.filter((item) => item !== dato);
+            setLocalStorage('starWarsListChecked', auxArr);
+            console.log(`Ahora AUX ARR CONTIENE: ${auxArr}`);
+          }
+        }
+      });
     });
-    
+
     loading.style.display = 'none';
   } catch (err) {
     console.error(err);

@@ -55,6 +55,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //***** STAR WARS SECTION *****
     const lista = document.querySelector("#lista");
+    //let SWListJSON = functions.getLocalStorage('starWarsListChecked') || []
     const res = functions.getFilmsSW(lista);
+
 
 });
