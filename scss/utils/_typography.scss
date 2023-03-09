@@ -86,15 +86,21 @@ body {
           h2{
             text-align: center;
             font-weight: normal;
-            font-size: $breakpoint-xxl;
+            font-size: $breakpoint-xl;
             letter-spacing: 0.05em;
             color: $color-white;
+            @include tablet-lg() {
+              font-size: $breakpoint-xxl;
+            }
           }
           &#loading{
             text-align: center;
             font-weight: normal;
-            font-size: $breakpoint-xxl;
+            font-size: $breakpoint-xl;
             letter-spacing: 0.08em;
+            }
+            @include tablet-lg() {
+              font-size: $breakpoint-xxl;
             }
 
           div{
@@ -102,15 +108,22 @@ body {
               thead{
                 tr{
                   font-weight: normal;
-                  font-size: $breakpoint-lg;
-                  letter-spacing: 0.05em;
+                  font-size: $breakpoint-sm;
+                  
+                  @include tablet-lg() {
+                    letter-spacing: 0.05em;
+                    font-size: $breakpoint-lg;
+                  }
                 }
               }
               tbody{
                 tr{
                   font-weight: normal;
-                  font-size: $breakpoint-md;
+                  font-size: $breakpoint-none;
                   color: $color-white;
+                  @include tablet-lg() {
+                    font-size: $breakpoint-md;
+                  }
                 }
               }
             }

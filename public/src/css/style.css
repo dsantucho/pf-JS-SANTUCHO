@@ -51,25 +51,45 @@ body main section div span.advertencia {
 body main section#starwars div h2 {
   text-align: center;
   font-weight: normal;
-  font-size: 2rem;
+  font-size: 1.8rem;
   letter-spacing: 0.05em;
   color: white;
+}
+@media (min-width: 992px) {
+  body main section#starwars div h2 {
+    font-size: 2rem;
+  }
 }
 body main section#starwars div#loading {
   text-align: center;
   font-weight: normal;
-  font-size: 2rem;
+  font-size: 1.8rem;
   letter-spacing: 0.08em;
+}
+@media (min-width: 992px) {
+  body main section#starwars div {
+    font-size: 2rem;
+  }
 }
 body main section#starwars div div table thead tr {
   font-weight: normal;
-  font-size: 1.6rem;
-  letter-spacing: 0.05em;
+  font-size: 1.2rem;
+}
+@media (min-width: 992px) {
+  body main section#starwars div div table thead tr {
+    letter-spacing: 0.05em;
+    font-size: 1.6rem;
+  }
 }
 body main section#starwars div div table tbody tr {
   font-weight: normal;
-  font-size: 1.4rem;
+  font-size: 1rem;
   color: white;
+}
+@media (min-width: 992px) {
+  body main section#starwars div div table tbody tr {
+    font-size: 1.4rem;
+  }
 }
 body footer div span.copyright {
   font-weight: 400;
