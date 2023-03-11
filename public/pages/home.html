@@ -34,7 +34,7 @@
                 <img
                   src="../src/image/3754169.jpg"
                   alt="CouplesCoop Logo"
-                  class="icon-logo "
+                  class="icon-logo"
                 />
               </a>
             </div>
@@ -86,6 +86,7 @@
 
     <main>
       <div class="container d-lg-flex col-lg-12 justify-content-around">
+        <!-- GROCERY FORM -->
         <section class="grocerylist m-5">
           <div class="p-4">
             <h2>To-do Grocery List</h2>
@@ -110,20 +111,25 @@
             </div>
           </div>
         </section>
+
+        <!-- CHORES FORM-->
         <section class="choreslist m-5">
           <div class="p-4">
             <h2>To-do Chores List</h2>
             <span class="d-flex justify-content-center pt-2">Get things done, one item at a time.</span>
             <form id="choresForm" class="mt-14 mb-4 d-flex flex-column">
               <label for="newchore" class="pt-3">Add chore</label>
-              <input type="text" name="newchore" id="choreInput" value="" class="pt-2 pb-2" />
+              <input type="text" name="newchore" id="choreInput" class="pt-2 pb-2" />
               <div class="pt-3">
                 <button id="button-add-chore" type="submit" class="button-grocery p-2">Add</button>
               </div>
             </form>
           </div>
+          <div id="itemListChores" class="d-flex flex-column"></div>
         </section>
       </div>
+
+      <!-- STAR WARS -->
       <div class="container">
         <section id="starwars" class="swlist m-5">
           <div class="p-4">

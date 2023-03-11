@@ -34,15 +34,35 @@ body main section.grocerylist > div:last-of-type h4,
 body main section.grocerylist > div:last-of-type span {
   font-size: 1.6rem;
 }
+body main section.choreslist h2 {
+  text-align: center;
+  font-weight: normal;
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+body main section.choreslist span {
+  font-size: 1.2rem;
+  margin-bottom: 0.7rem;
+  margin-left: 3px;
+  margin-top: 0.2rem;
+}
 body main section form div button.button-grocery {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1.4rem;
 }
+body main section form label, body main section form input {
+  font-size: 1.2rem;
+}
 body main section #itemList article div label,
-body main section #itemList article div span {
+body main section #itemList article div span, body main section #itemListChores article div label,
+body main section #itemListChores article div span {
   font-size: 1.2rem;
   font-style: normal;
+}
+body main section #itemList article div input.line-through, body main section #itemListChores article div input.line-through {
+  text-decoration: line-through;
 }
 body main section div span.advertencia {
   font-size: 1.6rem;
@@ -108,6 +128,10 @@ body.clipped {
   padding: 0;
   position: absolute;
   z-index: -1;
+}
+
+.el-checked {
+  text-decoration: line-through;
 }
 
 * {
@@ -185,7 +209,7 @@ footer div a i {
 
 main section.grocerylist {
   max-width: 500px;
-  min-width: 50%;
+  min-width: 35%;
   background: #9EA1D4;
   color: #fff;
   box-shadow: -10px -10px 0px 0px #A8D1D1;
@@ -205,7 +229,7 @@ main section.choreslist {
   color: #fff;
   box-shadow: -10px -10px 0px 0px #A8D1D1;
 }
-main section.choreslist #itemList article {
+main section.choreslist #itemListChores article {
   background: rgba(138, 143, 226, 0.8392156863);
 }
 main section.swlist {
@@ -217,7 +241,7 @@ main section.swlist {
 main section.swlist table th {
   color: white;
 }
-main section #groceryForm input {
+main section #groceryForm input, main section #choresForm input {
   flex-grow: 1;
   border: none;
   background: #f7f1f1;
@@ -266,6 +290,14 @@ section form#loginForm input#login-button {
   color: white;
   cursor: pointer;
   font-size: 1.6rem;
+}
+section div#itemListChores article div input {
+  border: none;
+  border-radius: 0px;
+  color: white;
+  cursor: pointer;
+  height: 18px;
+  width: 18px;
 }
 
 body {

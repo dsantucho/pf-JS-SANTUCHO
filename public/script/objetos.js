@@ -9,7 +9,6 @@ export class itemSuper {
     var now = DateTime.now()
     console.log(now.setLocale('es').toLocaleString())
     this.date = now.setLocale('es').toLocaleString(DateTime.DATETIME_SHORT);
-    //this.date = new Date().toDateString(); // agrego fecha => 'Sun Feb 05 2023'
     this.active = true; // es para luego poder eliminar items de la lista
   }
   setActiveTrue() {
@@ -27,9 +26,21 @@ export class user {
   }
 }
 
-export class filmsSW{
-  constructor(id_episode, active){
-    this.id_episode = id_episode;
-    this.active = false;
+export class itemChores{
+  constructor(idItem, user, chore){
+    this.idItem = idItem;
+    this.user = user;
+    this.chore = chore;
+    var now = DateTime.now()
+    this.date = now.setLocale('es').toLocaleString(DateTime.DATETIME_SHORT);
+    this.active = true; 
+    this.isDone = false;
   }
 }
+
+// export class filmsSW{
+//   constructor(id_episode, active){
+//     this.id_episode = id_episode;
+//     this.active = false;
+//   }
+// }

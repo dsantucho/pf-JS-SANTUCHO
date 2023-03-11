@@ -50,4 +50,21 @@ section {
     //     // background-color: black;
     // }
   }
+  div{
+    &#itemListChores{
+      article{
+        div{
+          input{
+            border:none;
+            border-radius: 0px;
+            color: $color-white;
+            cursor: pointer;
+            height: 18px;
+            width: 18px;
+          }
+        }
+      }
+    }
+  }
 }
+

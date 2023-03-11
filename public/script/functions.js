@@ -1,4 +1,4 @@
-import { itemSuper, user } from "./objetos.js";
+import { itemSuper, user, itemChores } from "./objetos.js";
 
 //variables
 let idItem = 0;
@@ -29,7 +29,6 @@ export function getUserDestructuring(usuario) {
 }
 
 export function displayItems(key) {
-  console.log("entre displayItems(key)");
   let values = getLocalStorage(key) || [];
   console.log(values);
   if (values.length === 0) {
@@ -71,7 +70,7 @@ export function displayItems(key) {
           "btn-delete-grocery",
           "pt-3",
           "pb-3",
-          "pe-4"
+          "pe-5"
         );
         //buttonDelete.classList.add('delete-button');
         buttonDelete.id = `delete-button-${element.idItem}`; //add class for each delete item
@@ -134,7 +133,6 @@ export function saveItemSupermarket(item, price, idUser, key) {
     console.log("length: " + lengthAux);
     //take the JSON using getLocal and add a new item into the same JSON.
     const newItem = new itemSuper(lengthAux++, idUser, item, parseFloat(price));
-    //o auxArr.push({...auxArr, newItem})
     auxArr = [...auxArr, newItem];
     console.log(`Ahora AUX ARR CONTIENE: ${auxArr}`);
     setLocalStorage(key, auxArr);
@@ -173,6 +171,221 @@ export function sumItemsPrice(key) {
 }
 
 // ***** Chores list functions *****
+//displey checked
+export function displeyChoresChecked(){
+  const checkboxes = document.querySelectorAll('[id^="btn-check-"]');
+  let itemsJSON = getLocalStorage('listChores') || [];
+  checkboxes.forEach((item)=>{
+    let itemCheck = item.id;
+
+    if(itemsJSON.length !== 0){
+      itemsJSON.forEach((e)=>{
+        console.log(`itemCheck = ${itemCheck} && e = ${e}`)
+        if (`btn-check-${e.idItem}` == itemCheck && e.isChecked == true){
+          item.cheched = true;
+        }
+      })
+    }
+  })
+
+}
+// displey
+export function displeyChores(){
+  let values = getLocalStorage('listChores') || [];
+  console.log(values);
+  if (values.length === 0) {
+    return console.log("chores list is empty=>not shows items");
+  } else {
+    //tomar elemento lista 
+    let itemList = document.getElementById("itemListChores"); //contenedor
+    itemList.innerHTML="";
+    //TODO
+    values.forEach((element) => {
+      if (element.active) {
+        //mostrar elementos en HTML
+        let item = document.createElement("article");
+        item.id = `chore-${element.idItem}`;
+        item.classList.add(
+          "col-12",
+          "d-flex",
+          "flex-row",
+          "justify-content-between",
+          "align-items-center",
+          "mb-2"
+        );
+        let checkContainer = document.createElement("div");
+        checkContainer.classList.add(
+        "col-1",          
+        "d-flex",
+        "ps-2",
+        "ps-lg-5",
+        "flex-row",
+        "justify-content-between",
+        "align-items-center");
+        let buttonCheck = document.createElement("input");
+        buttonCheck.classList.add(
+          "d-flex", "offset-1", "justify-content-center", "align-items-center"
+        );
+        buttonCheck.id = `btn-check-${element.idItem}`; //add class for each delete item
+        buttonCheck.type = "checkbox";
+        buttonCheck.checked = element.isDone;
+        if(element.isDone){item.classList.add("el-checked");}
+        
+        buttonCheck.addEventListener('click',(event)=>{
+          console.log('entre al event litener');
+          let storageChores = getLocalStorage('listChores') || [];
+          const ix = parseInt(event.target.id.substring(10));
+          storageChores[ix].isDone = event.target.checked;
+          setLocalStorage('listChores', storageChores);
+          // console.log(`choreId: chore-${ix}, ix: ${ix}, isDone: element.isDone`);
+          if(storageChores[ix].isDone){
+            document.getElementById(`chore-${ix}`).classList.add("el-checked");
+          }else{
+            document.getElementById(`chore-${ix}`).classList.remove("el-checked");
+          }
+        });
+
+        // TODO CHECK EVENT ****/
+        // get all the checkboxes based on their IDs
+        // const checkboxes = document.querySelectorAll('[id^="btn-check-"]');
+        // console.log(checkboxes);
+        // iterate over the checkboxes and add an event listener
+        // checkboxes.forEach((checkbox)=>{
+        //   checkbox.addEventListener('click',(event)=>{
+        //     console.log('entre al event litener');
+        //     let storageChores = getLocalStorage('listChores') || [];
+        //     const ix = parseInt(event.target.id.substring(10));
+        //     storageChores[ix].isDone = event.target.checked;
+        //     setLocalStorage('listChores', storageChores);
+        //     if(element.isDone){
+        //       document.getElementById(`chore-${ix}`).classList.add("el-checked");
+        //     }else{
+        //       document.getElementById(`chore-${ix}`).classList.remove("el-checked");
+        //     }
+
+        //     // if(event.target.checked){ //guardo check = true
+        //     //   console.log("checked");
+        //     //   let storageChores = getLocalStorage('listChores') || [];
+        //     //   // 'btn-check-0'
+        //     //   storageChores[parseInt(event.target.id.substring(10))].isDone = true;
+        //     //   // checkbox.isDone = true;
+        //     //   if(element.isDone){item.classList.add("el-checked");}
+        //     //   setLocalStorage('listChores', storageChores);
+        //     //   displeyChoresChecked();
+        //     // }else{
+        //     //   console.log("unchecked")
+        //     //   //delete check = false
+        //     //   checkbox.isDone = false;
+        //     //   if(element.isDone){item.classList.remove("el-checked");}
+        //     //   setLocalStorage('listChores', values);
+        //     //   displeyChoresChecked();
+        //     // }
+        //   })
+        // });
+
+        checkContainer.appendChild(buttonCheck);
+        item.appendChild(checkContainer);
+
+        // **** DESCRIPTION CHORE ****/
+        //item chore description
+        let description = document.createElement("div");
+        description.classList.add(
+          "col-9", "d-flex", "align-items-center"
+        );
+        let itemName = document.createElement("label");
+        itemName.classList.add("ps-4");
+        itemName.innerHTML = element.chore;
+        description.appendChild(itemName);
+        
+        // **** DELETE ****/
+        // Create the delete icon element
+        let acctionsItems = document.createElement("div");
+        let buttonDelete = document.createElement("button");
+        buttonDelete.classList.add(
+          "btn-delete-grocery",
+          "pt-3",
+          "pb-3",
+          "pe-5"
+        );
+        buttonDelete.id = `delete-chore-btn-${element.idItem}`; //add class for each delete item
+        //**** DELETE EVENT ****/
+        buttonDelete.addEventListener("click", () => {
+          console.log(`click DELETE: ${element.idItem}`);
+          swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this item!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              element.active = false;
+              setLocalStorage('listChores', values);
+              displeyChores();
+              swal("Poof! Your item has been deleted!", {
+                icon: "success",
+                text: `Item deleted was = ${element.item}`
+              });
+
+            } else {
+              swal("Your item is safe!");
+            }
+          });
+        });
+        let deleteIcon = document.createElement("i");
+        deleteIcon.classList.add("bi", "bi-trash");
+        acctionsItems.appendChild(buttonDelete);
+        buttonDelete.appendChild(deleteIcon);
+        // Append the delete and descrition to the "div" element
+        item.appendChild(description);
+        item.appendChild(acctionsItems);
+        // Append the "p" element to the item list
+        itemList.appendChild(item);
+      }
+    });
+    //buttonsDelete = document.querySelectorAll(".delete-button");
+    //console.log(buttonsDelete);
+
+    //TODO
+
+
+  }
+}
+
+  //add - mark as done - delete
+  export function addItemChore( itemChore, user){
+    if(user){
+      saveItemChore(itemChore,user);
+      displeyChores();
+    }else{
+      window.location = "../index.html";
+  }
+  }
+
+  export function saveItemChore(itemChore, user){
+    let auxLocal = getLocalStorage('listChores') || [];
+    if(auxLocal.length !==0){
+      //* ya existe LS listChores voy a sumar un item
+      let lengthLS = auxLocal.length;
+      // crear un nuevo itemChore
+      const newChore = new itemChores (lengthLS++,user,itemChore);
+      auxLocal = [...auxLocal, newChore];
+      console.log(`New chore: ${newChore.chore}`);
+      console.log(`Ahora auxLocal CONTIENE: ${auxLocal}`);
+      setLocalStorage('listChores', auxLocal);
+    }else{
+      //* no existe el LS =>crear nuevo
+      const newChore = new itemChores (0,user,itemChore);
+      auxLocal = [...auxLocal, newChore];
+      setLocalStorage('listChores', auxLocal);
+      console.log(`New localStorage + itemChore: ${newChore.chore}`)
+    }
+  }
+
+
+
+//***** Star Wars Cards *****
 
 export function displeySWchecked(){
   let tableRows = lista.querySelectorAll("tbody > tr");
@@ -181,7 +394,7 @@ export function displeySWchecked(){
     const cellId = row.querySelectorAll("th")
     const cells = row.querySelectorAll("td");
     const episodeId = `checkMovie-${cellId[0].textContent}`;
-    let checkbox = row.querySelector(`#${episodeId}`);//row.querySelector("input[type='checkbox']");
+    let checkbox = row.querySelector(`#${episodeId}`);
     let isChecked = checkbox.checked;
             
     // do something with the data...
@@ -189,7 +402,7 @@ export function displeySWchecked(){
 
     if(SWListJSON.length !== 0){
         SWListJSON.forEach((e)=>{
-          console.log(`** SWListedChecked entre al for each compara: JSON => ${e} ; y tabla => ${episodeId}`) 
+          //console.log(`** SWListedChecked entre al for each compara: JSON => ${e} ; y tabla => ${episodeId}`) 
           if(e == episodeId){
             checkbox.checked = true;
           }
@@ -198,7 +411,6 @@ export function displeySWchecked(){
   }); 
 }
 
-//***** Star Wars Cards *****
 export function createSWcards(lista, el){
   lista.innerHTML += `
   <tr>
@@ -213,7 +425,6 @@ export function createSWcards(lista, el){
     </td>
   </tr>
   `;
-
 }
 
 export async function getFilmsSW(lista){
@@ -239,13 +450,10 @@ export async function getFilmsSW(lista){
     checkboxes.forEach((checkbox) => {
       checkbox.addEventListener('click', (event) => {
         if (event.target.checked) {
-          // the checkbox was checked
-          //console.log(checkbox.id)
-          //let value = checkbox.id
           let auxArr = getLocalStorage('starWarsListChecked') || [];
           if(auxArr.length !== 0){
             auxArr = [...auxArr, checkbox.id];
-            console.log(`Ahora AUX ARR CONTIENE: ${auxArr}`);
+            //console.log(`Ahora AUX ARR CONTIENE: ${auxArr}`);
             setLocalStorage('starWarsListChecked', auxArr);
           }else{
             console.log('*** New check => create LocalStorage');
@@ -261,7 +469,7 @@ export async function getFilmsSW(lista){
             //delete dato of auxArr
             auxArr = auxArr.filter((item) => item !== dato);
             setLocalStorage('starWarsListChecked', auxArr);
-            console.log(`Ahora AUX ARR CONTIENE: ${auxArr}`);
+            //console.log(`Ahora AUX ARR CONTIENE: ${auxArr}`);
           }
         }
       });
@@ -275,11 +483,3 @@ export async function getFilmsSW(lista){
   }
 }
 
-
-
-export function markAsViewSW(){
-  //traer mi JSON donde guardo por id_episode cual ya vimos 
-  //buscar JS
-  //si no exite: crear uno nuevo al momento de marcar como vista
-  //si exite el JSON traerlo y marcar en la card como vista
-}

@@ -2,7 +2,7 @@ main {
   section {
     &.grocerylist {
       max-width: 500px;
-      min-width: 50%;
+      min-width: 35%;
       background: $color-blue-violet;
       color: #fff;
       box-shadow: -10px -10px 0px 0px $color-teal;
@@ -25,17 +25,12 @@ main {
       background: $color-blue-violet;
       color: #fff;
       box-shadow: -10px -10px 0px 0px $color-teal;
-      #itemList {
+      #itemListChores {
         article {
           //background:$color-teal-light;
           background: $color-blue-violet-light;
         }
       }
-      // & > div:last-of-type {
-      //   background-color: $color-teal;
-      //   color: #000;
-      //   border: $color-blue-violet 2px solid;
-      // }
     }
 
     &.swlist{
@@ -50,7 +45,7 @@ main {
       }
     }
 
-    #groceryForm {
+    #groceryForm, #choresForm {
       input {
         flex-grow: 1;
         border: none;

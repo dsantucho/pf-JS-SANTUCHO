@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if(!(functions.getLocalStorage("loginUser"))){
         window.location = "../index.html";
     }
-    let userAux = functions.getLocalStorage("loginUser");
+    let user = functions.getLocalStorage("loginUser");
     // ***** DISPLEY GROCERY 
     functions.displayItems("itemsGrocery"); //if empty -> console.log
     // **** add item in grocery List *****
@@ -51,9 +51,24 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     }
-    //***** TODO CHORES *****
 
-    //***** STAR WARS SECTION *****
+
+    //***** TODO CHORES *****
+        //displeyChores
+    functions.displeyChores();
+    const choresForm = document.getElementById("choresForm");
+    choresForm.addEventListener("submit",addChore);
+    function addChore(event){
+        event.preventDefault();
+        let itemChore = document.getElementById("choreInput").value;
+        functions.addItemChore(itemChore,user.idUser)
+        document.getElementById("choreInput").value = "";
+
+    }
+        //listener submit - funtions.addChore
+    
+    
+        //***** STAR WARS SECTION *****
     const lista = document.querySelector("#lista");
     //let SWListJSON = functions.getLocalStorage('starWarsListChecked') || []
     const res = functions.getFilmsSW(lista);
