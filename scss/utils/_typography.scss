@@ -41,7 +41,10 @@ body {
         }
         div{
           button{
-            font-size:$breakpoint-md ;
+            font-size:$breakpoint-sm;
+            @include tablet-lg() {
+              font-size: $breakpoint-md;
+            }
           }
         }
       }
