@@ -10,6 +10,30 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location = "../index.html";
     }
     let user = functions.getLocalStorage("loginUser");
+
+    // ***** DISPLEY USER INFO
+    let infoDiv = document.getElementById("welcome");
+    console.log(infoDiv)
+    functions.displeyUserWelcome(infoDiv);
+
+    let btnDeletGrocery = document.getElementById("cleanGrocery");
+    btnDeletGrocery.addEventListener("click", function(){
+        localStorage.removeItem('itemsGrocery');
+        location.reload();
+    });
+
+    let btnDeletChores = document.getElementById("cleanChores");
+    btnDeletChores.addEventListener("click", function(){
+        localStorage.removeItem('listChores');
+        location.reload();
+    });
+    let btnDeletAll = document.getElementById("cleanAll");
+    btnDeletAll.addEventListener("click", function(){
+        localStorage.removeItem('listChores');
+        localStorage.removeItem('itemsGrocery');
+        location.reload();
+    });
+
     // ***** DISPLEY GROCERY 
     functions.displayItems("itemsGrocery"); //if empty -> console.log
     // **** add item in grocery List *****
@@ -52,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
     //***** TODO CHORES *****
         //displeyChores
     functions.displeyChores();
@@ -65,12 +88,9 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("choreInput").value = "";
 
     }
-        //listener submit - funtions.addChore
-    
-    
-        //***** STAR WARS SECTION *****
+  
+    //***** STAR WARS SECTION *****
     const lista = document.querySelector("#lista");
-    //let SWListJSON = functions.getLocalStorage('starWarsListChecked') || []
     const res = functions.getFilmsSW(lista);
 
 

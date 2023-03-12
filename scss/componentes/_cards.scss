@@ -1,5 +1,11 @@
 main {
   section {
+    &.personalInfo{
+      background:$color-teal ;
+      color: #fff;
+      box-shadow: -10px -10px 0px 0px $color-blue-violet;
+      min-height: 150px;
+    }
     &.grocerylist {
       max-width: 500px;
       min-width: 35%;

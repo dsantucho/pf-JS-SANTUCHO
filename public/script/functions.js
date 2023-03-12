@@ -17,16 +17,17 @@ export function getLocalStorage(key) {
   return value;
 }
 
-// ***** Grocery list functions *****
-// tomar el user
-export function getUserDestructuring(usuario) {
-  if (getLocalStorage("loginUser")) {
-    usuario = getLocalStorage("loginUser");
-    const { name, password, idUser } = usuario;
-  } else {
-    usuario = [];
-  }
+//***** Displey User info */
+export function displeyUserWelcome(infoDiv){
+  let usuario = getLocalStorage("loginUser");
+  const { name, password, idUser } = usuario;
+  infoDiv.innerHTML += `    
+      <h2 class="m-3"> Welcome ${usuario.name} </h2>
+  `;
+  
 }
+
+// ***** Grocery list functions *****
 
 export function displayItems(key) {
   let values = getLocalStorage(key) || [];
@@ -170,25 +171,6 @@ export function sumItemsPrice(key) {
   }
 }
 
-// ***** Chores list functions *****
-//displey checked
-export function displeyChoresChecked(){
-  const checkboxes = document.querySelectorAll('[id^="btn-check-"]');
-  let itemsJSON = getLocalStorage('listChores') || [];
-  checkboxes.forEach((item)=>{
-    let itemCheck = item.id;
-
-    if(itemsJSON.length !== 0){
-      itemsJSON.forEach((e)=>{
-        console.log(`itemCheck = ${itemCheck} && e = ${e}`)
-        if (`btn-check-${e.idItem}` == itemCheck && e.isChecked == true){
-          item.cheched = true;
-        }
-      })
-    }
-  })
-
-}
 // displey
 export function displeyChores(){
   let values = getLocalStorage('listChores') || [];
@@ -199,7 +181,6 @@ export function displeyChores(){
     //tomar elemento lista 
     let itemList = document.getElementById("itemListChores"); //contenedor
     itemList.innerHTML="";
-    //TODO
     values.forEach((element) => {
       if (element.active) {
         //mostrar elementos en HTML
@@ -232,56 +213,16 @@ export function displeyChores(){
         if(element.isDone){item.classList.add("el-checked");}
         
         buttonCheck.addEventListener('click',(event)=>{
-          console.log('entre al event litener');
           let storageChores = getLocalStorage('listChores') || [];
           const ix = parseInt(event.target.id.substring(10));
           storageChores[ix].isDone = event.target.checked;
           setLocalStorage('listChores', storageChores);
-          // console.log(`choreId: chore-${ix}, ix: ${ix}, isDone: element.isDone`);
           if(storageChores[ix].isDone){
             document.getElementById(`chore-${ix}`).classList.add("el-checked");
           }else{
             document.getElementById(`chore-${ix}`).classList.remove("el-checked");
           }
         });
-
-        // TODO CHECK EVENT ****/
-        // get all the checkboxes based on their IDs
-        // const checkboxes = document.querySelectorAll('[id^="btn-check-"]');
-        // console.log(checkboxes);
-        // iterate over the checkboxes and add an event listener
-        // checkboxes.forEach((checkbox)=>{
-        //   checkbox.addEventListener('click',(event)=>{
-        //     console.log('entre al event litener');
-        //     let storageChores = getLocalStorage('listChores') || [];
-        //     const ix = parseInt(event.target.id.substring(10));
-        //     storageChores[ix].isDone = event.target.checked;
-        //     setLocalStorage('listChores', storageChores);
-        //     if(element.isDone){
-        //       document.getElementById(`chore-${ix}`).classList.add("el-checked");
-        //     }else{
-        //       document.getElementById(`chore-${ix}`).classList.remove("el-checked");
-        //     }
-
-        //     // if(event.target.checked){ //guardo check = true
-        //     //   console.log("checked");
-        //     //   let storageChores = getLocalStorage('listChores') || [];
-        //     //   // 'btn-check-0'
-        //     //   storageChores[parseInt(event.target.id.substring(10))].isDone = true;
-        //     //   // checkbox.isDone = true;
-        //     //   if(element.isDone){item.classList.add("el-checked");}
-        //     //   setLocalStorage('listChores', storageChores);
-        //     //   displeyChoresChecked();
-        //     // }else{
-        //     //   console.log("unchecked")
-        //     //   //delete check = false
-        //     //   checkbox.isDone = false;
-        //     //   if(element.isDone){item.classList.remove("el-checked");}
-        //     //   setLocalStorage('listChores', values);
-        //     //   displeyChoresChecked();
-        //     // }
-        //   })
-        // });
 
         checkContainer.appendChild(buttonCheck);
         item.appendChild(checkContainer);
@@ -325,7 +266,7 @@ export function displeyChores(){
               displeyChores();
               swal("Poof! Your item has been deleted!", {
                 icon: "success",
-                text: `Item deleted was = ${element.item}`
+                text: `Item deleted was = ${element.chore}`
               });
 
             } else {
@@ -344,12 +285,6 @@ export function displeyChores(){
         itemList.appendChild(item);
       }
     });
-    //buttonsDelete = document.querySelectorAll(".delete-button");
-    //console.log(buttonsDelete);
-
-    //TODO
-
-
   }
 }
 

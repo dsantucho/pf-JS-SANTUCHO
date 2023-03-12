@@ -25,8 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
       //redirect to Home Page
       window.location = "./pages/home.html";
     } else {
-      swal("Something went wrong", "Wrong username or password, refresh [F5] the webpage please", "warning");
-     
+      swal("Something went wrong", "Wrong username or password, refresh [F5] the webpage please", "warning"); 
     }
   }
 });

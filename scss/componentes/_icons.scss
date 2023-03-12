@@ -1,9 +1,20 @@
-img{
-    &.icon-logo{
-        max-height:$icon-sm; 
-        max-width:$icon-sm; 
+header{
+    div{
+        &.icon-logo{
+            min-height:$icon-lg; 
+            min-width:$icon-xl; 
+            background-image: url('../image/logo-mobile-v2.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            @include tablet-lg() {
+                background-image: url('../image/logo-web-v2.png');
+              }
+
+        }
     }
 }
+
 table{
     tbody{
         tr{

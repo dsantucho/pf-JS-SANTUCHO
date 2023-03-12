@@ -27,6 +27,24 @@ body {
   }
   main {
     section {
+      &.personalInfo{
+        color: $color-sw-black;
+        div{
+          &#welcome{
+            h2{
+              font-size: $breakpoint-2xl;
+            }
+          }
+        }
+        label{
+          font-size: $breakpoint-lg;
+        }
+        div{
+          button{
+            font-size:$breakpoint-md ;
+          }
+        }
+      }
       &.grocerylist {
         h2 {
           text-align: center;

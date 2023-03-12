@@ -17,6 +17,18 @@ body header nav.font-nav a {
     font-size: 2rem;
   }
 }
+body main section.personalInfo {
+  color: #222d2e;
+}
+body main section.personalInfo div#welcome h2 {
+  font-size: 2.8rem;
+}
+body main section.personalInfo label {
+  font-size: 1.6rem;
+}
+body main section.personalInfo div button {
+  font-size: 1.4rem;
+}
 body main section.grocerylist h2 {
   text-align: center;
   font-weight: normal;
@@ -187,9 +199,18 @@ header nav ul li {
   display: inline-block;
 }
 
-img.icon-logo {
-  max-height: 9.5rem;
-  max-width: 9.5rem;
+header div.icon-logo {
+  min-height: 10.5rem;
+  min-width: 11rem;
+  background-image: url("../image/logo-mobile-v2.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+@media (min-width: 992px) {
+  header div.icon-logo {
+    background-image: url("../image/logo-web-v2.png");
+  }
 }
 
 table tbody tr td div.input-group-text {
@@ -207,6 +228,12 @@ footer div a i {
   color: #F1F7B5;
 }
 
+main section.personalInfo {
+  background: #A8D1D1;
+  color: #fff;
+  box-shadow: -10px -10px 0px 0px #9EA1D4;
+  min-height: 150px;
+}
 main section.grocerylist {
   max-width: 500px;
   min-width: 35%;
@@ -259,6 +286,18 @@ main section div div#loading {
   color: #c2301e;
 }
 
+button#cleanGrocery, button#cleanChores, button#cleanAll {
+  border: none;
+  background: #F1F7B5;
+  color: #222d2e;
+  cursor: pointer;
+  transition: #FD8A8A 0.2s ease-out;
+}
+button#cleanGrocery:hover, button#cleanChores:hover, button#cleanAll:hover {
+  background: #222d2e;
+  border: 2px solid #c2301e;
+  color: #FD8A8A;
+}
 button.button-grocery {
   border: none;
   background: #FD8A8A;

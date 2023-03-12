@@ -28,18 +28,12 @@
       <!-- nav + logo -->
       <div class="container justify-content-center col-lg-12 justify-content-lg-evenly">
         <div class="row w-100 col-lg-12">
-          <div class="col-11 d-flex flex-column align-items-center justify-content-center flex-lg-row col-lg-6 justify-content-lg-evenly">
+          <div class="col-11 d-flex flex-column align-items-center justify-content-center flex-lg-row col-lg-7 justify-content-lg-start">
             <div class="col-11 d-flex justify-content-center col-lg-3">
-              <a class="">
-                <img
-                  src="../src/image/3754169.jpg"
-                  alt="CouplesCoop Logo"
-                  class="icon-logo"
-                />
-              </a>
+              <div class="col-11 col-lg-3 icon-logo"></div>
             </div>
-            <div class="col-11 d-flex justify-content-center m-2 col-lg-3">
-              <a  class="espaciado">CouplesCoop</a> <!--href="./home.html"-->
+            <div class="col-11 d-flex justify-content-center m-2 col-lg-4">
+              <a  class="espaciado ps-lg-4">CouplesCoop</a> <!--href="./home.html"-->
             </div>
           </div>
           <!-- button mobile-->
@@ -60,7 +54,7 @@
           </div>
 
           <nav
-            class="col-lg-5 collapse navbar-collapse justify-content-end align-items-center font-nav"
+            class="col-lg-4 collapse navbar-collapse justify-content-end align-items-center font-nav"
             id="navbarNav">
             <ul class="navbar-nav header-nav">
               <li class="nav-item p-2">
@@ -85,9 +79,21 @@
     </header>
 
     <main>
-      <div class="container d-lg-flex col-lg-12 justify-content-around">
+      <div class="container mt-5">
+        <section class="personalInfo d-flex flex-column justify-content-evenly">
+          <div id="welcome" class="ms-2"></div>
+          <label class="ms-4"> ⚠️ This actions clean the LocalStorage </label>
+          <div class="d-flex justify-content-evenly mt-4 mb-4">
+            <button id="cleanGrocery">Clean Grocery List </button>
+            <button id="cleanChores">Clean Chores List </button>
+            <button id="cleanAll">Clean All Lists </button>
+          </div>
+        </section>
+      </div>
+
+      <div class="container d-lg-flex col-lg-12 mt-4 justify-content-around">
         <!-- GROCERY FORM -->
-        <section class="grocerylist m-5">
+        <section class="grocerylist m-5 d-flex flex-column justify-content-between">
           <div class="p-4">
             <h2>To-do Grocery List</h2>
             <span class="d-flex justify-content-center pt-2">Get things done, one item at a time.</span>

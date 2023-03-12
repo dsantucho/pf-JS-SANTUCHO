@@ -1,4 +1,17 @@
 button {
+  &#cleanGrocery, &#cleanChores, &#cleanAll{
+    border: none;
+    background: $color-yellow;
+    color: $color-sw-black;
+    cursor: pointer;
+    transition: $color-red-pink 0.2s ease-out;
+
+    &:hover {
+      background: $color-sw-black;
+      border:2px solid $color-sw-red;
+      color: $color-red-pink;
+    }
+  }
   &.button-grocery {
     border: none;
     background: $color-red-pink;
@@ -18,14 +31,6 @@ button {
     color: $color-white;
     font-size: $breakpoint-lg;
   }
-  //TODO mofidificar el span con la imangen del boton nav para mobile - no puedo darle estilos.
-  // &.navbar-toggler{
-  //     border-radius: 0%;
-  //     border: 1px solid $color-yellow;
-  //     &.navbar-toggler-icon{
-  //         color: $color-yellow;
-  //     }
-  // }
   &#limpiar-local{
     border: none;
     background-color: $color-red-pink;
