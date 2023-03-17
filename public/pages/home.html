@@ -99,9 +99,9 @@
             <span class="d-flex justify-content-center pt-2">Get things done, one item at a time.</span>
             <form id="groceryForm" class="mt-14 mb-4 d-flex flex-column">
               <label for="newitem" class="pt-3">Add grocery</label>
-              <input type="text" name="newitem" id="itemInput" value="" class="pt-2 pb-2" />
+              <input type="text" name="newitem" id="itemInput" value="" class="pt-2 pb-2" required />
               <label for="newitem" class="pt-3">Add price</label>
-              <input type="text" name="priceitem" id="itemPrice" value="" class="pt-2 pb-2" />
+              <input type="number" name="priceitem" id="itemPrice" value="" class="pt-2 pb-2" min="0" required />
               <div class="pt-3">
                 <button id="button-add" type="submit" class="button-grocery p-2">Add item</button>
               </div>
@@ -125,7 +125,7 @@
             <span class="d-flex justify-content-center pt-2">Get things done, one item at a time.</span>
             <form id="choresForm" class="mt-14 mb-4 d-flex flex-column">
               <label for="newchore" class="pt-3">Add chore</label>
-              <input type="text" name="newchore" id="choreInput" class="pt-2 pb-2" />
+              <input type="text" name="newchore" id="choreInput" class="pt-2 pb-2" required/>
               <div class="pt-3">
                 <button id="button-add-chore" type="submit" class="button-grocery p-2">Add</button>
               </div>

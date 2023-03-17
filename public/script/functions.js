@@ -131,11 +131,7 @@ export function displayItems(key) {
               swal("Your item is safe!");
             }
           });
-          
-          // setLocalStorage(key, values);
-          // displayItems(key);
-          // let result = sumItemsPrice("itemsGrocery");
-          // resultSpan.innerHTML = result;
+
         });
         let deleteIcon = document.createElement("i");
         deleteIcon.classList.add("bi", "bi-trash");

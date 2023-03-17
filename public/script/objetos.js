@@ -1,7 +1,7 @@
 const DateTime = luxon.DateTime;
 //classes
 export class itemSuper {
-  constructor(idItem, user, item, price) {
+  constructor(idItem, user, item, price = 0) {
     this.idItem = idItem;
     this.user = user;
     this.item = item;
