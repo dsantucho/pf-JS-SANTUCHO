@@ -43,7 +43,7 @@ section {
     // max-width: 320px;
     // left: calc(50% - 160px);
     &#loginForm {
-      input#login-button {
+      input#login-button, input#enter-button {
         border: none;
         background-color: $color-blue-violet;
         color: $color-white;
@@ -55,6 +55,7 @@ section {
     //     // background-color: black;
     // }
   }
+
   div{
     &#itemListChores{
       article{
@@ -69,6 +70,18 @@ section {
           }
         }
       }
+    }
+  }
+}
+
+section#render{
+  div{
+    input#enter-button {
+      border: none;
+      background-color: $color-blue-violet;
+      color: $color-white;
+      cursor: pointer;
+      font-size: $breakpoint-lg;
     }
   }
 }

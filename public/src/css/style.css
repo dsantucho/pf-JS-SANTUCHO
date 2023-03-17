@@ -328,7 +328,7 @@ button#limpiar-local {
   font-size: 1.6rem;
 }
 
-section form#loginForm input#login-button {
+section form#loginForm input#login-button, section form#loginForm input#enter-button {
   border: none;
   background-color: #9EA1D4;
   color: white;
@@ -342,6 +342,14 @@ section div#itemListChores article div input {
   cursor: pointer;
   height: 18px;
   width: 18px;
+}
+
+section#render div input#enter-button {
+  border: none;
+  background-color: #9EA1D4;
+  color: white;
+  cursor: pointer;
+  font-size: 1.6rem;
 }
 
 body {

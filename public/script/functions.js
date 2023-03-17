@@ -17,6 +17,36 @@ export function getLocalStorage(key) {
   return value;
 }
 
+//**** LOGIN SECTION */
+export function renderRegister(section){
+  //Ya tenemos en local storage un loginUser
+  section.innerHTML = `
+  <div class="container">
+                <form id="loginForm">
+                    <div class="col-12 ps-4 pe-4 d-flex flex-column justify-content-center col-lg-6 offset-lg-3">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" class="login-form-filds" />
+
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" class="login-form-filds" />
+                    </div>
+
+                    <div class="col-6 p-3 col-lg-6 offset-lg-3">
+                        <input id="login-button" type="submit" value="Register" class="ps-3 pe-3 pt-2 pb-2" />
+                    </div>
+                </form>
+  </div>
+  `
+}
+
+export function renderEnterApp(section){
+section.innerHTML = `
+  <div class="col-6 p-3 col-lg-6 offset-lg-3 d-flex justify-content-center ">
+    <input id="enter-button" type="submit" value="ENTER" class="ps-3 pe-3 pt-2 pb-2" />
+  </div>
+`
+}
+
 //***** Displey User info */
 export function displeyUserWelcome(infoDiv){
   let usuario = getLocalStorage("loginUser");
