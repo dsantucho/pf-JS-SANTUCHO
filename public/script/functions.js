@@ -353,19 +353,21 @@ export function displeySWchecked(){
   let SWListJSON = getLocalStorage('starWarsListChecked') || []
   tableRows.forEach((row) => {
     const cellId = row.querySelectorAll("th")
-    const cells = row.querySelectorAll("td");
     const episodeId = `checkMovie-${cellId[0].textContent}`;
     let checkbox = row.querySelector(`#${episodeId}`);
-    let isChecked = checkbox.checked;
-            
     // do something with the data...
     console.log('*** REVISAR CHECK***')
 
     if(SWListJSON.length !== 0){
         SWListJSON.forEach((e)=>{
-          //console.log(`** SWListedChecked entre al for each compara: JSON => ${e} ; y tabla => ${episodeId}`) 
+          console.log(`** SWListedChecked entre al for each compara: JSON => ${e} ; y tabla => ${episodeId}`) 
           if(e == episodeId){
             checkbox.checked = true;
+            if(checkbox.checked){
+              row.style = 'text-decoration: line-through;';
+            } else{
+              row.style ='';
+            }     
           }
         });
     }
@@ -374,7 +376,7 @@ export function displeySWchecked(){
 
 export function createSWcards(lista, el){
   lista.innerHTML += `
-  <tr>
+  <tr id = "tr-${el.episode_id}">
     <th scope="row">${el.episode_id}</th>
     <td>${el.title}</td>
     <td>${el.director}</td>
@@ -414,13 +416,14 @@ export async function getFilmsSW(lista){
           let auxArr = getLocalStorage('starWarsListChecked') || [];
           if(auxArr.length !== 0){
             auxArr = [...auxArr, checkbox.id];
-            //console.log(`Ahora AUX ARR CONTIENE: ${auxArr}`);
             setLocalStorage('starWarsListChecked', auxArr);
           }else{
             console.log('*** New check => create LocalStorage');
             auxArr = [checkbox.id];
             setLocalStorage('starWarsListChecked', auxArr);
           }
+          const ix = parseInt(event.target.id.substring(11)); //checkMovie-
+          document.getElementById(`tr-${ix}`).classList.add("el-checked");
         } else {
           console.log("*** entrar al else eliminar ***");
           let auxArr = getLocalStorage('starWarsListChecked') || [];
@@ -430,7 +433,9 @@ export async function getFilmsSW(lista){
             //delete dato of auxArr
             auxArr = auxArr.filter((item) => item !== dato);
             setLocalStorage('starWarsListChecked', auxArr);
-            //console.log(`Ahora AUX ARR CONTIENE: ${auxArr}`);
+            const ix = parseInt(event.target.id.substring(11)); //checkMovie-
+            document.getElementById(`tr-${ix}`).classList.remove("el-checked");
+            document.getElementById(`tr-${ix}`).style = '';
           }
         }
       });
